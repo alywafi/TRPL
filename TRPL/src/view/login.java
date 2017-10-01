@@ -6,6 +6,8 @@
 package view;
 
 import java.awt.event.ActionListener;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,6 +18,7 @@ public class login extends javax.swing.JFrame {
     /**
      * Creates new form login
      */
+
     public login() {
         initComponents();
     }
@@ -31,6 +34,16 @@ public class login extends javax.swing.JFrame {
     public void kliklogin(ActionListener action) {
         login.addActionListener(action);
     }
+    public void klikexit(ActionListener action) {
+        tombolexit.addActionListener(action);
+    }
+    public void klikminimize(ActionListener action) {
+        tombolminimize.addActionListener(action);
+    }
+
+    public void message(String message) {
+        JOptionPane.showMessageDialog(this, message);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -42,41 +55,48 @@ public class login extends javax.swing.JFrame {
     private void initComponents() {
 
         inputusername = new javax.swing.JTextField();
-        inputpassword = new javax.swing.JTextField();
+        inputpassword = new javax.swing.JPasswordField();
         login = new javax.swing.JButton();
+        tombolminimize = new javax.swing.JButton();
+        tombolexit = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setResizable(false);
+        setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        inputusername.setText("username");
+        inputusername.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        inputusername.setBorder(null);
+        inputusername.setOpaque(false);
+        getContentPane().add(inputusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 430, 39));
 
-        inputpassword.setText("password");
+        inputpassword.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        inputpassword.setBorder(null);
+        inputpassword.setOpaque(false);
+        getContentPane().add(inputpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 430, 50));
 
-        login.setText("login");
+        login.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Login_Button.png"))); // NOI18N
+        login.setBorderPainted(false);
+        login.setContentAreaFilled(false);
+        login.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Login_ButtonMouseOver.png"))); // NOI18N
+        getContentPane().add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, 450, 90));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(inputusername)
-                    .addComponent(login, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
-                    .addComponent(inputpassword))
-                .addContainerGap(173, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(78, 78, 78)
-                .addComponent(inputusername, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(inputpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
-                .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(70, Short.MAX_VALUE))
-        );
+        tombolminimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/All_Minimize.png"))); // NOI18N
+        tombolminimize.setBorder(null);
+        tombolminimize.setBorderPainted(false);
+        tombolminimize.setContentAreaFilled(false);
+        tombolminimize.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/All_MinimizeMouseOver.png"))); // NOI18N
+        getContentPane().add(tombolminimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(1270, 0, -1, 30));
+
+        tombolexit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Login_Close.png"))); // NOI18N
+        tombolexit.setBorderPainted(false);
+        tombolexit.setContentAreaFilled(false);
+        tombolexit.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Login_CloseMouseOver.png"))); // NOI18N
+        getContentPane().add(tombolexit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1310, 0, 50, 30));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Login.png"))); // NOI18N
+        jLabel1.setToolTipText("");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 770));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -117,8 +137,11 @@ public class login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField inputpassword;
+    private javax.swing.JPasswordField inputpassword;
     private javax.swing.JTextField inputusername;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton login;
+    private javax.swing.JButton tombolexit;
+    private javax.swing.JButton tombolminimize;
     // End of variables declaration//GEN-END:variables
 }

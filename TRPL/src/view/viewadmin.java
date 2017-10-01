@@ -5,6 +5,8 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author acer
@@ -18,6 +20,12 @@ public class viewadmin extends javax.swing.JFrame {
         initComponents();
     }
 
+    public void klikexit(ActionListener action) {
+        tombolexit.addActionListener(action);
+    }
+    public void klikminimize(ActionListener action) {
+        tombolminimize.addActionListener(action);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,18 +35,31 @@ public class viewadmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel2 = new javax.swing.JLabel();
+        tombolminimize = new javax.swing.JButton();
+        tombolexit = new javax.swing.JButton();
+        background = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setText("view admin");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 470, -1, -1));
+
+        tombolminimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/All_Minimize.png"))); // NOI18N
+        tombolminimize.setBorder(null);
+        tombolminimize.setBorderPainted(false);
+        tombolminimize.setContentAreaFilled(false);
+        tombolminimize.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/All_MinimizeMouseOver.png"))); // NOI18N
+        getContentPane().add(tombolminimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(1270, 0, -1, 30));
+
+        tombolexit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Login_Close.png"))); // NOI18N
+        tombolexit.setBorderPainted(false);
+        tombolexit.setContentAreaFilled(false);
+        tombolexit.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Login_CloseMouseOver.png"))); // NOI18N
+        getContentPane().add(tombolexit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1310, 0, 50, 30));
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 770));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -79,5 +100,9 @@ public class viewadmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel background;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton tombolexit;
+    private javax.swing.JButton tombolminimize;
     // End of variables declaration//GEN-END:variables
 }
