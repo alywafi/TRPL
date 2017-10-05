@@ -9,6 +9,8 @@ import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import view.viewuser;
 
 /**
@@ -22,8 +24,22 @@ viewuser view;
         this.view = view;
         view.klikexit(new exitaction());
         view.klikminimize(new minimizeaction());
+        view.klikinventaris(new klikinventaris());
         view.setVisible(true);
     }
+public class klikinventaris implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            try {
+                controler.c_viewinventaris a = new controler.c_viewinventaris(new view.view_inventaris(),new model.m_inventaris());
+                view.dispose();
+            } catch (SQLException ex) {
+            }
+                
+        }
+
+}
 private class exitaction implements ActionListener{
 
         @Override

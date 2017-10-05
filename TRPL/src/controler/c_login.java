@@ -51,6 +51,9 @@ private class minimizeaction implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            
+        System.out.println(view.getusername());
+        System.out.println(view.getpassword());
             try {
                 if (model.cekusername(view.getusername())) {
                     if (model.cekpassword(view.getusername(), view.getpassword()) == true) {

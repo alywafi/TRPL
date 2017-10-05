@@ -12,9 +12,9 @@ public class koneksi {
     Statement stm;
 
     public koneksi() throws SQLException {
-        String url = "jdbc:mysql://103.241.206.188:3306/trplchoirul"; //url DB
-        String username = "choirul"; //username DB
-        String pass = "123123"; //password DB, Jika tidak di Password silahkan di Kosongkan.
+        String url = "jdbc:mysql://localhost:3306/ikan"; //url DB
+        String username = "root"; //username DB
+        String pass = ""; //password DB, Jika tidak di Password silahkan di Kosongkan.
 
         //membuat koneksi ke DB
         this.con = (Connection) DriverManager.getConnection(url, username, pass);
