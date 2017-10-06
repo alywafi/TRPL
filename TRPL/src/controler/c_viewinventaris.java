@@ -22,9 +22,10 @@ m_inventaris model;
 
     public c_viewinventaris(view_inventaris view, m_inventaris model) throws SQLException {
         this.view = view;
-        this.view.setTableModel(this.model.getDatainventaris());
+        this.view.setVisible(true);
         view.klikexit(new exitaction());
         view.klikminimize(new minimizeaction());
+        this.view.setTableModel(model.getDatainventaris());
         view.setVisible(true);
     }
     
@@ -32,11 +33,8 @@ private class exitaction implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent e) {
-             try {
-                controler.c_login a = new controler.c_login(new view.login(),new model.m_login());
-                view.dispose();
-            } catch (SQLException ex) {
-            }
+            controler.c_viewuser a = new controler.c_viewuser(new view.viewuser());
+            view.dispose();
         }
 
 }

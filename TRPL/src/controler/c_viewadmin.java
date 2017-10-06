@@ -54,6 +54,5 @@ public class c_viewadmin {
         public void actionPerformed(ActionEvent e) {
             view.setState(Frame.ICONIFIED);
         }
-
     }
 }

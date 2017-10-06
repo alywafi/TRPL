@@ -18,7 +18,8 @@ import view.viewuser;
  * @author acer
  */
 public class c_viewuser {
-viewuser view;
+
+    viewuser view;
 
     public c_viewuser(viewuser view) {
         this.view = view;
@@ -27,37 +28,42 @@ viewuser view;
         view.klikinventaris(new klikinventaris());
         view.setVisible(true);
     }
-public class klikinventaris implements ActionListener {
+
+    public class klikinventaris implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                controler.c_viewinventaris a = new controler.c_viewinventaris(new view.view_inventaris(),new model.m_inventaris());
                 view.dispose();
+                controler.c_viewinventaris a = new controler.c_viewinventaris(new view.view_inventaris(), new model.m_inventaris());
+
             } catch (SQLException ex) {
+                ex.getStackTrace();
             }
-                
+
         }
 
-}
-private class exitaction implements ActionListener{
+    }
+
+    private class exitaction implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-             try {
-                controler.c_login a = new controler.c_login(new view.login(),new model.m_login());
+            try {
+                controler.c_login a = new controler.c_login(new view.login(), new model.m_login());
                 view.dispose();
             } catch (SQLException ex) {
             }
         }
 
-}
-private class minimizeaction implements ActionListener{
+    }
+
+    private class minimizeaction implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
             view.setState(Frame.ICONIFIED);
         }
 
-}
+    }
 }

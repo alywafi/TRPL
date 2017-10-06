@@ -28,6 +28,7 @@ public class koneksi {
 
     //method untuk ekesekusi query Select
     public ResultSet getResult(String query) throws SQLException {
+        System.out.println(query);
         ResultSet rs = stm.executeQuery(query);
         return rs;
     }
