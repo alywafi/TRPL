@@ -9,6 +9,8 @@ import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.m_inventaris;
 import view.view_inventaris;
 
@@ -25,10 +27,22 @@ m_inventaris model;
         this.view.setVisible(true);
         view.klikexit(new exitaction());
         view.klikminimize(new minimizeaction());
+        view.klikpinjam(new pinjambarang());
         this.view.setTableModel(model.getDatainventaris());
         view.setVisible(true);
     }
-    
+    private class pinjambarang implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (view.getSelectedRow() == -1) {
+                view.message("Pilih Dulu Gan");
+            } else {
+                System.out.println( "controler "+view.GetIDTable());
+                model.insertDatapeminjaman(view.GetIDTable());
+        }
+        }
+    }
 private class exitaction implements ActionListener{
 
         @Override

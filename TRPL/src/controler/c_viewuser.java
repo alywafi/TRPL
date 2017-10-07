@@ -9,8 +9,6 @@ import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import view.viewuser;
 
 /**
@@ -34,9 +32,8 @@ public class c_viewuser {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                view.dispose();
                 controler.c_viewinventaris a = new controler.c_viewinventaris(new view.view_inventaris(), new model.m_inventaris());
-
+                view.dispose();
             } catch (SQLException ex) {
                 ex.getStackTrace();
             }

@@ -6,6 +6,7 @@
 package view;
 
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -30,8 +31,19 @@ public class view_inventaris extends javax.swing.JFrame {
     }
 
     public String GetIDTable() {
+        System.out.println("id inventaris view = "+this.tabel.getValueAt(this.getSelectedRow(), 0).toString());
         return this.tabel.getValueAt(this.getSelectedRow(), 0).toString();
     }
+// public String[] GetData() {
+//        String Data[] = new String[6];
+//        Data[0] = this.id_transpinjaman.getText();
+//        Data[1] = this.tgl_pinjaman.getText();
+//        Data[2] = this.id_nasabah.getText();
+//        Data[3] = this.besar_pinjaman.getText();
+//        Data[4] = clogin.datapetugas[0];
+//        Data[5] = this.cicil.getText();
+//        return Data;
+//    }
 
     public void klikexit(ActionListener action) {
         tombolexit.addActionListener(action);
@@ -40,7 +52,19 @@ public class view_inventaris extends javax.swing.JFrame {
     public void klikminimize(ActionListener action) {
         tombolminimize.addActionListener(action);
     }
-
+    public void klikpinjam(ActionListener action) {
+        btnpinjam.addActionListener(action);
+    }
+    public void klikcari(ActionListener action) {
+        btncari.addActionListener(action);
+    }
+    public void klikdaftar(ActionListener action) {
+        btndaftar.addActionListener(action);
+    }
+  public void message(String message) {
+        JOptionPane.showMessageDialog(this, message);
+    }
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -54,6 +78,9 @@ public class view_inventaris extends javax.swing.JFrame {
         tombolminimize = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabel = new javax.swing.JTable();
+        btnpinjam = new javax.swing.JButton();
+        btncari = new javax.swing.JButton();
+        btndaftar = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -88,7 +115,16 @@ public class view_inventaris extends javax.swing.JFrame {
         tabel.setOpaque(false);
         jScrollPane1.setViewportView(tabel);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 1050, 110));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 820, 380));
+
+        btnpinjam.setText("pinjam barang");
+        getContentPane().add(btnpinjam, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
+
+        btncari.setText("cari");
+        getContentPane().add(btncari, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, -1, -1));
+
+        btndaftar.setText("daftar pinjaman");
+        getContentPane().add(btndaftar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, -1, -1));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/HomeAnggotaKelompok.png"))); // NOI18N
         background.setText("jLabel1");
@@ -135,6 +171,9 @@ public class view_inventaris extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
+    private javax.swing.JButton btncari;
+    private javax.swing.JButton btndaftar;
+    private javax.swing.JButton btnpinjam;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabel;
     private javax.swing.JButton tombolexit;
