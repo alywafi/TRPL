@@ -9,9 +9,8 @@ import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import model.m_inventaris;
+import view.popup_inputpinjaman;
 import view.view_inventaris;
 
 /**
@@ -19,10 +18,12 @@ import view.view_inventaris;
  * @author acer
  */
 public class c_viewinventaris {
-view_inventaris view;
-m_inventaris model;
 
-    public c_viewinventaris(view_inventaris view, m_inventaris model) throws SQLException {
+    view_inventaris view;
+    m_inventaris model;
+    popup_inputpinjaman popup;
+
+    public c_viewinventaris(view_inventaris view, m_inventaris model, popup_inputpinjaman popup) throws SQLException {
         this.view = view;
         this.view.setVisible(true);
         view.klikexit(new exitaction());
@@ -30,7 +31,13 @@ m_inventaris model;
         view.klikpinjam(new pinjambarang());
         this.view.setTableModel(model.getDatainventaris());
         view.setVisible(true);
+//        popup.setVisible(true);
     }
+
+    public void viewpopup() {
+        this.popup.setVisible(true);
+    }
+
     private class pinjambarang implements ActionListener {
 
         @Override
@@ -38,12 +45,12 @@ m_inventaris model;
             if (view.getSelectedRow() == -1) {
                 view.message("Pilih Dulu Gan");
             } else {
-                System.out.println( "controler "+view.GetIDTable());
-                model.insertDatapeminjaman(view.GetIDTable());
-        }
+                viewpopup();
+            }
         }
     }
-private class exitaction implements ActionListener{
+
+    private class exitaction implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -51,13 +58,14 @@ private class exitaction implements ActionListener{
             view.dispose();
         }
 
-}
-private class minimizeaction implements ActionListener{
+    }
+
+    private class minimizeaction implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
             view.setState(Frame.ICONIFIED);
         }
 
-}
+    }
 }

@@ -31,7 +31,6 @@ public class view_inventaris extends javax.swing.JFrame {
     }
 
     public String GetIDTable() {
-        System.out.println("id inventaris view = "+this.tabel.getValueAt(this.getSelectedRow(), 0).toString());
         return this.tabel.getValueAt(this.getSelectedRow(), 0).toString();
     }
 // public String[] GetData() {

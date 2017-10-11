@@ -9,6 +9,7 @@ import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import view.popup_inputpinjaman;
 import view.viewuser;
 
 /**
@@ -32,7 +33,7 @@ public class c_viewuser {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                controler.c_viewinventaris a = new controler.c_viewinventaris(new view.view_inventaris(), new model.m_inventaris());
+                controler.c_viewinventaris a = new controler.c_viewinventaris(new view.view_inventaris(), new model.m_inventaris(),new view.popup_inputpinjaman());
                 view.dispose();
             } catch (SQLException ex) {
                 ex.getStackTrace();
