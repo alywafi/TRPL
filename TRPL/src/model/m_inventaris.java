@@ -20,7 +20,7 @@ public class m_inventaris extends modelmaster {
         return execute(query);
   }
  public String[] getDataWithID(String ID) throws SQLException {
-        String data[] = new String[10];
+        String data[] = new String[4];
         String query = "select * from inventaris where id_inventaris = " + ID + ";";
         return getdataid(query, data);
     }

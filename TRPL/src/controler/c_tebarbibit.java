@@ -9,58 +9,43 @@ import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import model.m_inventaris;
-import view.popup_inputpinjaman;
-import view.view_inventaris;
+import model.m_tebar_bibit;
+import view.view_tebar_bibit;
 
 /**
  *
  * @author acer
  */
-public class c_viewinventaris {
+public class c_tebarbibit {
 
-    view_inventaris view;
-    m_inventaris model;
-    popup_inputpinjaman popup;
+    view_tebar_bibit view;
+    m_tebar_bibit model;
+//    popup_inputpinjaman popup;
 
-    public c_viewinventaris(view_inventaris view, m_inventaris model, popup_inputpinjaman popup) throws SQLException {
+    public c_tebarbibit(view_tebar_bibit view, m_tebar_bibit model) throws SQLException {
         this.view = view;
-        this.model= model;
-        this.popup=popup;
-        this.view.setVisible(true);
+        this.model = model;
+        view.setVisible(true);
         view.klikexit(new exitaction());
         view.klikminimize(new minimizeaction());
-        view.klikpinjam(new pinjambarang());
-        this.view.setTableModel(model.getDatainventaris());
+        view.kliktambah(new tambahdata());
+        view.setTableModel(model.getDatatebar());
         view.setVisible(true);
 //        popup.setVisible(true);
     }
 
-    public void viewpopup() {
-        this.popup.setVisible(true);
-    }
-
-    public void setpopup(String[] data) throws SQLException {
-        popup.setdata(data);
-    }
-
-    private class pinjambarang implements ActionListener {
+    private class tambahdata implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
             if (view.getSelectedRow() == -1) {
                 view.message("Pilih Dulu Gan");
             } else {
+                model.insertDatatebar("1", 100);
                 try {
-                    setpopup(model.getDataWithID(view.GetIDTable()));
-                    viewpopup();
+                    view.setTableModel(model.getDatatebar());
                 } catch (SQLException ex) {
-                    Logger.getLogger(c_viewinventaris.class.getName()).log(Level.SEVERE, null, ex);
-                    ex.printStackTrace();
                 }
-
             }
         }
     }
@@ -72,7 +57,6 @@ public class c_viewinventaris {
             controler.c_viewuser a = new controler.c_viewuser(new view.viewuser());
             view.dispose();
         }
-
     }
 
     private class minimizeaction implements ActionListener {
@@ -81,6 +65,5 @@ public class c_viewinventaris {
         public void actionPerformed(ActionEvent e) {
             view.setState(Frame.ICONIFIED);
         }
-
     }
 }

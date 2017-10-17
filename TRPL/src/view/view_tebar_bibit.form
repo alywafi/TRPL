@@ -95,9 +95,9 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="btnpinjam">
+    <Component class="javax.swing.JButton" name="btnubah">
       <Properties>
-        <Property name="text" type="java.lang.String" value="pinjam barang"/>
+        <Property name="text" type="java.lang.String" value="ubah"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -115,13 +115,23 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JButton" name="btndaftar">
+    <Component class="javax.swing.JButton" name="btnkebutuhan">
       <Properties>
-        <Property name="text" type="java.lang.String" value="daftar pinjaman"/>
+        <Property name="text" type="java.lang.String" value="daftar kebutuhan"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="160" y="140" width="-1" height="-1"/>
+          <AbsoluteConstraints x="130" y="140" width="-1" height="-1"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JButton" name="btntambah">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="tambah"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="390" y="140" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>

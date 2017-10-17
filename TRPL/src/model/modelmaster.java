@@ -56,6 +56,7 @@ public abstract class modelmaster {
     }
 
     public String[] getdataid(String query, String data[]) throws SQLException {
+        System.out.println("masuk ambil data");
         ResultSet rs = con.getResult(query);
         if (rs.next()) {
             for (int i = 0; i < data.length; i++) {

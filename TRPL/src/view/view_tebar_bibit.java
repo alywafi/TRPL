@@ -13,12 +13,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author acer
  */
-public class view_inventaris extends javax.swing.JFrame {
+public class view_tebar_bibit extends javax.swing.JFrame {
 
     /**
      * Creates new form view_peminjaman
      */
-    public view_inventaris() {
+    public view_tebar_bibit() {
         initComponents();
     }
 
@@ -33,16 +33,7 @@ public class view_inventaris extends javax.swing.JFrame {
     public String GetIDTable() {
         return this.tabel.getValueAt(this.getSelectedRow(), 0).toString();
     }
-// public String[] GetData() {
-//        String Data[] = new String[6];
-//        Data[0] = this.id_transpinjaman.getText();
-//        Data[1] = this.tgl_pinjaman.getText();
-//        Data[2] = this.id_nasabah.getText();
-//        Data[3] = this.besar_pinjaman.getText();
-//        Data[4] = clogin.datapetugas[0];
-//        Data[5] = this.cicil.getText();
-//        return Data;
-//    }
+
 
     public void klikexit(ActionListener action) {
         tombolexit.addActionListener(action);
@@ -51,14 +42,17 @@ public class view_inventaris extends javax.swing.JFrame {
     public void klikminimize(ActionListener action) {
         tombolminimize.addActionListener(action);
     }
-    public void klikpinjam(ActionListener action) {
-        btnpinjam.addActionListener(action);
+    public void klikubah(ActionListener action) {
+        btnubah.addActionListener(action);
     }
     public void klikcari(ActionListener action) {
         btncari.addActionListener(action);
     }
-    public void klikdaftar(ActionListener action) {
-        btndaftar.addActionListener(action);
+    public void klikkebutuhan(ActionListener action) {
+        btnkebutuhan.addActionListener(action);
+    }
+    public void kliktambah(ActionListener action) {
+        btntambah.addActionListener(action);
     }
   public void message(String message) {
         JOptionPane.showMessageDialog(this, message);
@@ -77,9 +71,10 @@ public class view_inventaris extends javax.swing.JFrame {
         tombolminimize = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabel = new javax.swing.JTable();
-        btnpinjam = new javax.swing.JButton();
+        btnubah = new javax.swing.JButton();
         btncari = new javax.swing.JButton();
-        btndaftar = new javax.swing.JButton();
+        btnkebutuhan = new javax.swing.JButton();
+        btntambah = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -116,14 +111,17 @@ public class view_inventaris extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 820, 380));
 
-        btnpinjam.setText("pinjam barang");
-        getContentPane().add(btnpinjam, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
+        btnubah.setText("ubah");
+        getContentPane().add(btnubah, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
 
         btncari.setText("cari");
         getContentPane().add(btncari, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, -1, -1));
 
-        btndaftar.setText("daftar pinjaman");
-        getContentPane().add(btndaftar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, -1, -1));
+        btnkebutuhan.setText("daftar kebutuhan");
+        getContentPane().add(btnkebutuhan, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, -1, -1));
+
+        btntambah.setText("tambah");
+        getContentPane().add(btntambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, -1, -1));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/HomeAnggotaKelompok.png"))); // NOI18N
         background.setText("jLabel1");
@@ -149,21 +147,27 @@ public class view_inventaris extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(view_inventaris.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(view_tebar_bibit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(view_inventaris.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(view_tebar_bibit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(view_inventaris.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(view_tebar_bibit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(view_inventaris.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(view_tebar_bibit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new view_inventaris().setVisible(true);
+                new view_tebar_bibit().setVisible(true);
             }
         });
     }
@@ -171,8 +175,9 @@ public class view_inventaris extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
     private javax.swing.JButton btncari;
-    private javax.swing.JButton btndaftar;
-    private javax.swing.JButton btnpinjam;
+    private javax.swing.JButton btnkebutuhan;
+    private javax.swing.JButton btntambah;
+    private javax.swing.JButton btnubah;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabel;
     private javax.swing.JButton tombolexit;

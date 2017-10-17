@@ -24,14 +24,15 @@ public class popup_inputpinjaman extends javax.swing.JFrame {
         data[1] = id_inventaris.getText();
         data[2] = sisa_inventaris.getText();
         data[3] = total_pinjam.getText();
-        return null;
+        return data;
 
     }
 
     public void setdata(String[] data) {
-        id_peminjaman.setText(data[0]);
-        id_inventaris.setText(data[2]);
-        sisa_inventaris.setText(data[3]);
+        id_peminjaman.setText("");
+        nama.setText(data[1]);
+        id_inventaris.setText(data[0]);
+        sisa_inventaris.setText(data[2]);
     }
 
     /**
