@@ -22,6 +22,23 @@ public class view_inventaris extends javax.swing.JFrame {
         initComponents();
     }
 
+    public void SetName(String text) {
+        Nametag.setText(text);
+    }
+
+    public void KlikBack(ActionListener a) {
+        btnback.addActionListener(a);
+    }
+
+    public String Getname() {
+        String name;
+        name = Nametag.getText();
+        return name;
+    }
+    public void setEditable (boolean x) {
+        btnpinjam.setEnabled(x);
+    }
+
     public void setTableModel(DefaultTableModel table) {
         this.tabel.setModel(table);
     }
@@ -51,19 +68,31 @@ public class view_inventaris extends javax.swing.JFrame {
     public void klikminimize(ActionListener action) {
         tombolminimize.addActionListener(action);
     }
+
     public void klikpinjam(ActionListener action) {
         btnpinjam.addActionListener(action);
     }
+
     public void klikcari(ActionListener action) {
         btncari.addActionListener(action);
     }
+
     public void klikdaftar(ActionListener action) {
         btndaftar.addActionListener(action);
     }
-  public void message(String message) {
+
+    public String getButtonText() {
+        String text = btndaftar.getText();
+        return text;
+    }
+    public void setButtonText(String t){
+        btndaftar.setText(t);
+    }
+
+    public void message(String message) {
         JOptionPane.showMessageDialog(this, message);
     }
-   
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -80,6 +109,8 @@ public class view_inventaris extends javax.swing.JFrame {
         btnpinjam = new javax.swing.JButton();
         btncari = new javax.swing.JButton();
         btndaftar = new javax.swing.JButton();
+        Nametag = new javax.swing.JLabel();
+        btnback = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -117,13 +148,25 @@ public class view_inventaris extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 820, 380));
 
         btnpinjam.setText("pinjam barang");
-        getContentPane().add(btnpinjam, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
+        getContentPane().add(btnpinjam, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
 
         btncari.setText("cari");
-        getContentPane().add(btncari, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, -1, -1));
+        getContentPane().add(btncari, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, -1, -1));
 
         btndaftar.setText("daftar pinjaman");
-        getContentPane().add(btndaftar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, -1, -1));
+        getContentPane().add(btndaftar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, -1, -1));
+
+        Nametag.setFont(new java.awt.Font("Caviar Dreams", 0, 18)); // NOI18N
+        Nametag.setForeground(new java.awt.Color(255, 255, 255));
+        Nametag.setToolTipText("");
+        getContentPane().add(Nametag, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 140, 120, 20));
+
+        btnback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/back.png"))); // NOI18N
+        btnback.setBorder(null);
+        btnback.setBorderPainted(false);
+        btnback.setContentAreaFilled(false);
+        btnback.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/backmouseover.png"))); // NOI18N
+        getContentPane().add(btnback, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, -1, -1));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/HomeAnggotaKelompok.png"))); // NOI18N
         background.setText("jLabel1");
@@ -159,6 +202,8 @@ public class view_inventaris extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -169,7 +214,9 @@ public class view_inventaris extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Nametag;
     private javax.swing.JLabel background;
+    private javax.swing.JButton btnback;
     private javax.swing.JButton btncari;
     private javax.swing.JButton btndaftar;
     private javax.swing.JButton btnpinjam;

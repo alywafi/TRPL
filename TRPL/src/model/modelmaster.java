@@ -81,4 +81,12 @@ public abstract class modelmaster {
         }
         return table;
     }
+     public String getdataidNoaray (String query, String data) throws SQLException {
+        ResultSet rs = con.getResult(query);
+        if (rs.next()) {
+                data = rs.getString(1);
+        }
+     
+        return data;
+    }
 }

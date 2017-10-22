@@ -17,20 +17,23 @@ import view.view_tebar_bibit;
  * @author acer
  */
 public class c_tebarbibit {
-
+    c_viewuser view2;
     view_tebar_bibit view;
     m_tebar_bibit model;
+    String username;
 //    popup_inputpinjaman popup;
 
-    public c_tebarbibit(view_tebar_bibit view, m_tebar_bibit model) throws SQLException {
+    public c_tebarbibit(view_tebar_bibit view, m_tebar_bibit model, String Username) throws SQLException {
         this.view = view;
         this.model = model;
+        this.username=Username;
         view.setVisible(true);
         view.klikexit(new exitaction());
         view.klikminimize(new minimizeaction());
         view.kliktambah(new tambahdata());
         view.setTableModel(model.getDatatebar());
         view.setVisible(true);
+        view.SetName(Username);
 //        popup.setVisible(true);
     }
 
@@ -54,7 +57,7 @@ public class c_tebarbibit {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            controler.c_viewuser a = new controler.c_viewuser(new view.viewuser());
+            controler.c_viewuser d = new controler.c_viewuser(new view.viewuser(),username);
             view.dispose();
         }
     }

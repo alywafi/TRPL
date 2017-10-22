@@ -21,7 +21,9 @@ public class view_tebar_bibit extends javax.swing.JFrame {
     public view_tebar_bibit() {
         initComponents();
     }
-
+ public void SetName(String text) {
+        Nametag.setText(text);
+    }
     public void setTableModel(DefaultTableModel table) {
         this.tabel.setModel(table);
     }
@@ -75,6 +77,7 @@ public class view_tebar_bibit extends javax.swing.JFrame {
         btncari = new javax.swing.JButton();
         btnkebutuhan = new javax.swing.JButton();
         btntambah = new javax.swing.JButton();
+        Nametag = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -122,6 +125,11 @@ public class view_tebar_bibit extends javax.swing.JFrame {
 
         btntambah.setText("tambah");
         getContentPane().add(btntambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, -1, -1));
+
+        Nametag.setFont(new java.awt.Font("Caviar Dreams", 0, 18)); // NOI18N
+        Nametag.setForeground(new java.awt.Color(255, 255, 255));
+        Nametag.setToolTipText("");
+        getContentPane().add(Nametag, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 140, -1, -1));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/HomeAnggotaKelompok.png"))); // NOI18N
         background.setText("jLabel1");
@@ -173,6 +181,7 @@ public class view_tebar_bibit extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Nametag;
     private javax.swing.JLabel background;
     private javax.swing.JButton btncari;
     private javax.swing.JButton btnkebutuhan;

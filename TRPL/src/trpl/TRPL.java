@@ -17,8 +17,8 @@ public class TRPL {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws SQLException {
-//        controler.c_login a = new controler.c_login(new view.login(),new model.m_login());
- controler.c_viewuser d = new controler.c_viewuser(new view.viewuser());
+        controler.c_login a = new controler.c_login(new view.login(),new model.m_login());
+// controler.c_viewuser d = new controler.c_viewuser(new view.viewuser());
     }
     
 }

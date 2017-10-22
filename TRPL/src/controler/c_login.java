@@ -70,8 +70,8 @@ private class minimizeaction implements ActionListener{
                                 controler.c_viewketuasub c = new controler.c_viewketuasub(new view.viewketuasub());
                                 view.dispose();
                                 break;
-                            case "user":
-                                controler.c_viewuser d = new controler.c_viewuser(new view.viewuser());
+                            case "anggota kelompok":
+                                controler.c_viewuser d = new controler.c_viewuser(new view.viewuser(),view.getusername());
                                 view.dispose();
                                 break;
                         }

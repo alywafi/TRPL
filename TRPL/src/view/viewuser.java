@@ -20,7 +20,14 @@ public class viewuser extends javax.swing.JFrame {
     public viewuser() {
         initComponents();
     }
-
+     public void SetName(String text) {
+        Nametag.setText(text);
+    }
+public String Getname(){
+        String name ;
+        name = Nametag.getText();
+        return name ;
+    }
     public void klikexit(ActionListener action) {
         tombolexit.addActionListener(action);
     }
@@ -60,6 +67,7 @@ public class viewuser extends javax.swing.JFrame {
         klikramalan = new javax.swing.JButton();
         kliktebar = new javax.swing.JButton();
         klikforum = new javax.swing.JButton();
+        Nametag = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -107,6 +115,10 @@ public class viewuser extends javax.swing.JFrame {
         klikforum.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/button_ForumMouseOver.png"))); // NOI18N
         getContentPane().add(klikforum, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 270, 240, 260));
 
+        Nametag.setFont(new java.awt.Font("Caviar Dreams", 0, 18)); // NOI18N
+        Nametag.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(Nametag, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 130, -1, 30));
+
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/HomeAnggotaKelompok.png"))); // NOI18N
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 770));
 
@@ -149,6 +161,7 @@ public class viewuser extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Nametag;
     private javax.swing.JLabel background;
     private javax.swing.JButton klikforum;
     private javax.swing.JButton klikinventaris;
