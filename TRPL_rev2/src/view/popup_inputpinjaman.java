@@ -19,6 +19,7 @@ public class popup_inputpinjaman extends javax.swing.JFrame {
      * Creates new form popup_inputpinjaman
      */
     public popup_inputpinjaman() {
+        this.setLocationRelativeTo(this);
         initComponents();
     }
 
@@ -72,110 +73,61 @@ public class popup_inputpinjaman extends javax.swing.JFrame {
         btnSimpan = new javax.swing.JButton();
         IdPengguna = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Isikan ketentuan Berikut Ini");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 27, -1, -1));
 
         id_peminjaman.setEditable(false);
+        getContentPane().add(id_peminjaman, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 60, 251, -1));
 
         jLabel2.setText("id peminjaman");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 62, -1, -1));
 
         jLabel3.setText("id_inventaris");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(413, 62, -1, -1));
 
         id_inventaris.setEditable(false);
+        getContentPane().add(id_inventaris, new org.netbeans.lib.awtextra.AbsoluteConstraints(521, 60, 143, -1));
 
         jLabel4.setText("Jumlah");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 141, -1, -1));
+        getContentPane().add(Jumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 139, 251, -1));
+        getContentPane().add(Durasi_Pinjam, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 164, 251, -1));
 
         jLabel5.setText("Durasi Pinjam");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 166, -1, -1));
 
         jLabel6.setText("Tanggal Pinjam");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 218, -1, -1));
 
         jLabel7.setText("nama");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(413, 93, -1, -1));
 
         nama.setEditable(false);
+        getContentPane().add(nama, new org.netbeans.lib.awtextra.AbsoluteConstraints(521, 91, 143, -1));
 
         tanggal_pinjam.setEditable(false);
+        getContentPane().add(tanggal_pinjam, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 216, 246, -1));
 
         btnSimpan.setText("Simpan Peminjaman");
+        getContentPane().add(btnSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(499, 313, -1, -1));
 
         IdPengguna.setEditable(false);
+        getContentPane().add(IdPengguna, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 91, 251, -1));
 
         jLabel8.setText("id_Pengguna");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 93, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSimpan)
-                .addGap(25, 25, 25))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tanggal_pinjam))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 127, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Durasi_Pinjam)
-                            .addComponent(Jumlah)
-                            .addComponent(IdPengguna)
-                            .addComponent(id_peminjaman))))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel7))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nama, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(id_inventaris, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(id_peminjaman, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(id_inventaris, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(IdPengguna, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Jumlah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Durasi_Pinjam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(tanggal_pinjam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
-                .addComponent(btnSimpan)
-                .addContainerGap())
-        );
+        jLabel9.setText("pcs");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(402, 141, -1, -1));
+
+        jLabel10.setText("hari");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -223,6 +175,7 @@ public class popup_inputpinjaman extends javax.swing.JFrame {
     private javax.swing.JTextField id_inventaris;
     private javax.swing.JTextField id_peminjaman;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -230,6 +183,7 @@ public class popup_inputpinjaman extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField nama;
     private javax.swing.JTextField tanggal_pinjam;
     // End of variables declaration//GEN-END:variables

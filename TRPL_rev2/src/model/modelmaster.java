@@ -43,16 +43,17 @@ public abstract class modelmaster {
     }
 
     public boolean execute(String query) {
-        boolean succesDelete;
+        boolean sukseseksekusi;
         try {
             con.executeQuery(query);
-            succesDelete = true;
+            sukseseksekusi = true;
             System.out.println("query berhasil");
         } catch (SQLException ex) {
-            succesDelete = false;
+            sukseseksekusi = false;
             System.out.println("query salah");
         }
-        return succesDelete;
+        
+        return sukseseksekusi;
     }
 
     public String[] getdataid(String query, String data[]) throws SQLException {
@@ -85,5 +86,25 @@ public abstract class modelmaster {
             table.addRow(row);
         }
         return table;
+    }
+    public String getusernamewithid(String ID) throws SQLException {
+        String data="" ;
+        String query = "SELECT user FROM `pengguna` WHERE `id_user` = " + ID + ";";
+        return getdataidNoaray(query, data);
+    }
+    public String getidwithusername(String username) throws SQLException {
+        String data="" ;
+        String query = "SELECT `id_user`FROM `pengguna` WHERE `user` = '" + username + "';";
+        return getdataidNoaray(query, data);
+    }
+    
+    public String getJabatan(String username) throws SQLException {
+        String query = "select id_jabatan from pengguna where user = '" + username + "' ;";
+        ResultSet hasil = con.getResult(query);
+        String jabatan = null;
+        if (hasil.next()) {
+            jabatan = hasil.getString(1);
+        }
+        return jabatan;
     }
 }

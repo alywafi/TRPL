@@ -5,10 +5,10 @@
  */
 package trpl;
 
-import controler.c_login;
+import controler.CLogin;
 import java.sql.SQLException;
-import model.m_login;
-import view.login;
+import model.MLogin;
+import view.viewLogin;
 
 /**
  *
@@ -21,7 +21,7 @@ public class TRPL {
      */
     public static void main(String[] args) throws SQLException {
 
-        c_login a = new c_login(new login(), new m_login());
+        CLogin a = new CLogin(new viewLogin(), new MLogin());
     }
     
 }
