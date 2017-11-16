@@ -94,6 +94,7 @@ public class viewLihatDataTebar extends javax.swing.JFrame {
         getContentPane().add(tombolminimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(1290, 0, -1, 20));
 
         tabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tabel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -108,7 +109,7 @@ public class viewLihatDataTebar extends javax.swing.JFrame {
         tabel.setOpaque(false);
         jScrollPane1.setViewportView(tabel);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, 820, 380));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 1090, 380));
 
         Nametag.setFont(new java.awt.Font("Caviar Dreams", 0, 18)); // NOI18N
         Nametag.setForeground(new java.awt.Color(255, 255, 255));

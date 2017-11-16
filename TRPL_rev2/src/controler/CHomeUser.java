@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.MPeramalan;
 import view.viewHasilPeramalan;
 import view.viewPeramalan;
 import view.viewLogin;
@@ -35,6 +36,7 @@ public class CHomeUser {
         view.klikinventaris(new klikinventaris());
         view.klikramalan(new ramalanAction());
         view.kliktebar(new kliktebar());
+        view.klikforum(new klikforum());
         view.setVisible(true);
         System.out.println(Username);
         view.SetName(Username);
@@ -46,7 +48,7 @@ public class CHomeUser {
         public void actionPerformed(ActionEvent e) {
             view.dispose();
             try {
-                CPeramalan a = new CPeramalan(new viewPeramalan(), new viewHasilPeramalan(), view.Getname() );
+                CPeramalan a = new CPeramalan(new viewPeramalan(), new viewHasilPeramalan(),new MPeramalan() , view.Getname() );
             } catch (SQLException ex) {
                 Logger.getLogger(CHomeKetuaUmum.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -71,7 +73,7 @@ public class CHomeUser {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                controler.CInventaris a = new controler.CInventaris(new view.viewPeminjamanInventaris(), new model.MInventaris(), new view.popup_inputpinjaman(), new popup_verifikasi(), view.Getname());
+                controler.CInventaris a = new controler.CInventaris(new view.viewInventaris(), new model.MInventaris(), new view.popup_inputpinjaman(), new popup_verifikasi(), view.Getname());
                 view.dispose();
             } catch (SQLException ex) {
                 ex.getStackTrace();
@@ -95,7 +97,18 @@ public class CHomeUser {
         }
 
     }
+private class klikforum implements ActionListener {
 
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            try {
+                controler.Cforum a = new controler.Cforum(new view.viewforum(), new model.Mforum(), new view.popup_inputdataforum(), view.Getname());
+                view.dispose();
+            } catch (SQLException ex) {
+                ex.getStackTrace();
+            }
+        }
+    }
     private class exitaction implements ActionListener {
 
         @Override

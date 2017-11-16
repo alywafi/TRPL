@@ -21,11 +21,11 @@ import view.viewLihatDataTebar;
  * @author acer
  */
 public class CLihatDataTebar {
-
+    
     viewLihatDataTebar view;
     MBibit model;
     String username;
-
+    
     public CLihatDataTebar(viewLihatDataTebar view, MBibit model, String Username) throws SQLException {
         this.view = view;
         this.model = model;
@@ -34,32 +34,31 @@ public class CLihatDataTebar {
         view.klikexit(new exitaction());
         view.klikminimize(new minimizeaction());
         view.setTableModel(model.getDatatebar(model.getidwithusername(username)));
-
+        
         view.SetName(Username);
         view.KlikBack(new BackAction());
         view.setVisible(true);
     }
-
+    
     private class BackAction implements ActionListener {
-
+        
         @Override
         public void actionPerformed(ActionEvent a) {
             CHomeKetuaUmum x = new CHomeKetuaUmum(new viewHomeKetuaUmum(), view.getName());
             view.dispose();
         }
     }
-
+    
     private class exitaction implements ActionListener {
-
+        
         @Override
         public void actionPerformed(ActionEvent e) {
-            controler.CHomeUser d = new controler.CHomeUser(new view.viewHomeUser(), view.getName());
-            view.dispose();
+            System.exit(0);
         }
     }
-
+    
     private class minimizeaction implements ActionListener {
-
+        
         @Override
         public void actionPerformed(ActionEvent e) {
             view.setState(Frame.ICONIFIED);

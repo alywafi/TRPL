@@ -21,12 +21,12 @@ import view.viewTebarBibit;
  * @author acer
  */
 public class CTebarBibit {
-    
+
     viewTebarBibit view;
     MBibit model;
     popup_tebar popup;
     String username;
-    
+
     public CTebarBibit(viewTebarBibit view, MBibit model, popup_tebar popup, String Username) throws SQLException {
         this.view = view;
         this.model = model;
@@ -56,25 +56,25 @@ public class CTebarBibit {
     }
 
     private class tambahdata implements ActionListener {
-        
+
         @Override
         public void actionPerformed(ActionEvent e) {
             popup.setnama(view.getName());
             popup.setVisible(true);
         }
     }
-    
+
     private class BackAction implements ActionListener {
-        
+
         @Override
         public void actionPerformed(ActionEvent a) {
             controler.CHomeUser d = new controler.CHomeUser(new view.viewHomeUser(), view.getName());
             view.dispose();
         }
     }
-    
+
     private class kliksimpan implements ActionListener {
-        
+
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
@@ -90,25 +90,24 @@ public class CTebarBibit {
             } catch (SQLException ex) {
                 Logger.getLogger(CTebarBibit.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+
         }
-        
+
     }
-    
+
     private class exitaction implements ActionListener {
-        
+
         @Override
         public void actionPerformed(ActionEvent e) {
-            controler.CHomeUser d = new controler.CHomeUser(new view.viewHomeUser(), view.getName());
-            view.dispose();
+            System.exit(0);
         }
     }
-    
-    private class minimizeaction implements ActionListener {
-        
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            view.setState(Frame.ICONIFIED);
+
+        private class minimizeaction implements ActionListener {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                view.setState(Frame.ICONIFIED);
+            }
         }
     }
-}

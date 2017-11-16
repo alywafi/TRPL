@@ -15,7 +15,7 @@ import model.MInventaris;
 import view.popup_inputpinjaman;
 import view.popup_verifikasi;
 import view.viewHomeKetuaUmum;
-import view.viewPeminjamanInventaris;
+import view.viewInventaris;
 
 /**
  *
@@ -23,14 +23,14 @@ import view.viewPeminjamanInventaris;
  */
 public class CInventaris {
 
-    viewPeminjamanInventaris view;
+    viewInventaris view;
     MInventaris model;
     popup_inputpinjaman popup;
     popup_verifikasi popupver;
     String jabatan;
     String username;
 
-    public CInventaris(viewPeminjamanInventaris view, MInventaris model, popup_inputpinjaman popup, popup_verifikasi popupver, String Username) throws SQLException {
+    public CInventaris(viewInventaris view, MInventaris model, popup_inputpinjaman popup, popup_verifikasi popupver, String Username) throws SQLException {
         this.view = view;
         this.model = model;
         this.popup = popup;
@@ -62,11 +62,15 @@ public class CInventaris {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (model.updateVerifikasi(view.GetIDTable(), popupver.getComboBox()) == true) {
-                view.message("verivikaasi sukses");
-                popupver.dispose();
-            } else {
-                view.message("Verivikasi gagal");
+            try {
+                if (model.updateVerifikasi(view.GetIDTable(), popupver.getComboBox()) == true) {
+                    view.message("verivikaasi sukses");
+                    popupver.dispose();
+                } else {
+                    view.message("Verivikasi gagal");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(CInventaris.class.getName()).log(Level.SEVERE, null, ex);
             }
             try {
                 view.setTableModel(model.getDataDaftarPeminjaman());

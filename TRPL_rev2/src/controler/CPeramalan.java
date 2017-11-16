@@ -16,10 +16,13 @@ import java.util.logging.Logger;
 import javafx.scene.Parent;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+import model.MPeramalan;
 import model.modelmaster;
 import view.viewHasilPeramalan;
 import view.viewPeramalan;
 import view.popup_inputpinjaman;
+import view.viewHomeKetuaSub;
+import view.viewHomeKetuaUmum;
 import view.viewHomeUser;
 
 /**
@@ -30,10 +33,12 @@ public class CPeramalan {
 
     viewPeramalan view;
     viewHasilPeramalan view2;
+    MPeramalan model ;
 
-    public CPeramalan(viewPeramalan view1, viewHasilPeramalan View2, String Username) throws SQLException {
+    public CPeramalan(viewPeramalan view1, viewHasilPeramalan View2, MPeramalan Model, String Username) throws SQLException {
         view = view1;
         view2 = View2;
+        model = Model ;
         view.setVisible(true);
         view.klikexit(new exitaction());
         view2.klikexit(new exitaction());
@@ -202,11 +207,18 @@ public class CPeramalan {
 
         @Override
         public void actionPerformed(ActionEvent a) {
-            if (true) {
-                
+            try {
+                if (model.getidwithusername(view.Getname()).equals("4") ) {
+                    controler.CHomeUser d = new controler.CHomeUser(new viewHomeUser(), view.Getname());
+                }else if (model.getidwithusername(view.Getname()).equals("3")) {
+                    CHomeKetuaSub b = new CHomeKetuaSub(new viewHomeKetuaSub());
+                }else {
+                    CHomeKetuaUmum c = new CHomeKetuaUmum(new viewHomeKetuaUmum(), view.Getname());
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(CPeramalan.class.getName()).log(Level.SEVERE, null, ex);
             }
             view.dispose();
-            controler.CHomeUser d = new controler.CHomeUser(new viewHomeUser(), view.Getname());
         }
     }
 

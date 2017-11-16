@@ -34,13 +34,15 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="LStok" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="stockready" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="stock_ready" max="32767" attributes="0"/>
                           <Component id="id_inventaris" alignment="0" max="32767" attributes="0"/>
                           <Component id="nama_inventari" alignment="0" max="32767" attributes="0"/>
-                          <Component id="stok_inventaris" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
+                          <Component id="stok_inventaris" alignment="0" pref="147" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="187" max="-2" attributes="0"/>
                   </Group>
@@ -63,10 +65,15 @@
               </Group>
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="LStok" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="stok_inventaris" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="stock_ready" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="stockready" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               <Component id="btnsimpan" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="64" max="32767" attributes="0"/>
           </Group>
@@ -84,7 +91,7 @@
         <Property name="text" type="java.lang.String" value="nama barang"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
+    <Component class="javax.swing.JLabel" name="LStok">
       <Properties>
         <Property name="text" type="java.lang.String" value="stok"/>
       </Properties>
@@ -95,15 +102,19 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="nama_inventari">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="stok_inventaris">
     </Component>
     <Component class="javax.swing.JButton" name="btnsimpan">
       <Properties>
         <Property name="text" type="java.lang.String" value="simpan"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="stock_ready">
+    </Component>
+    <Component class="javax.swing.JLabel" name="stockready">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="stock ready"/>
       </Properties>
     </Component>
   </SubComponents>

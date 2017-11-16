@@ -97,28 +97,28 @@ import java.awt.event.ActionListener;
         klikLihatinventaris.setBorderPainted(false);
         klikLihatinventaris.setContentAreaFilled(false);
         klikLihatinventaris.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/button_lihatpeminjamanInventarisMouseOver.png"))); // NOI18N
-        getContentPane().add(klikLihatinventaris, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, 240, 260));
+        getContentPane().add(klikLihatinventaris, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 240, 260));
 
         klikramalan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/button_Ramalan.png"))); // NOI18N
         klikramalan.setText("jButton2");
         klikramalan.setBorderPainted(false);
         klikramalan.setContentAreaFilled(false);
         klikramalan.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/button_RamalanMouseOver.png"))); // NOI18N
-        getContentPane().add(klikramalan, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 270, 240, 260));
+        getContentPane().add(klikramalan, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 270, 240, 260));
 
         kliktebar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/button_Penebaran.png"))); // NOI18N
         kliktebar.setText("jButton3");
         kliktebar.setBorderPainted(false);
         kliktebar.setContentAreaFilled(false);
         kliktebar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/button_PenebaranMouseOver.png"))); // NOI18N
-        getContentPane().add(kliktebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 270, 240, 260));
+        getContentPane().add(kliktebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 270, 240, 260));
 
         klikforum.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/button_Forum.png"))); // NOI18N
         klikforum.setText("jButton4");
         klikforum.setBorderPainted(false);
         klikforum.setContentAreaFilled(false);
         klikforum.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/button_ForumMouseOver.png"))); // NOI18N
-        getContentPane().add(klikforum, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 270, 240, 260));
+        getContentPane().add(klikforum, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 270, 240, 260));
 
         btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/logout.png"))); // NOI18N
         btnLogout.setBorder(null);

@@ -15,6 +15,7 @@ import javax.swing.table.DefaultTableModel;
 import model.MInventaris;
 import view.popup_detailinvntaris;
 import view.viewDetailInventaris;
+import view.viewHomeAdmin;
 
 /**
  *
@@ -35,7 +36,8 @@ public class CDetailInventaris {
         view.setVisible(true);
         view.klikexit(new exitaction());
         view.klikminimize(new minimizeaction());
-        view.kliktambah(new tambahdata());
+        view.klikubah(new ubahAction());
+        view.kliktambah(new tambahAction());
         view.setTableModel(model.getDatainventaris());
         view.SetName(Username);
         popup.simpan(new kliksimpan());
@@ -43,13 +45,26 @@ public class CDetailInventaris {
         view.setVisible(true);
     }
 
-    private class tambahdata implements ActionListener {
+    private class tambahAction implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
             popup.IdEditable();
+            popup.setButtonText("save");
+            popup.setVisible(true);
+            popup.setStokText("Stok");
+        }
+    }
+
+    private class ubahAction implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            popup.IdEditable();
+            popup.setButtonText("update");
             popup.setdata(view.getDataOnTable());;
             popup.setVisible(true);
+            popup.setStokText("Penambahan/Pengurangan Stok");
         }
     }
 
@@ -57,7 +72,7 @@ public class CDetailInventaris {
 
         @Override
         public void actionPerformed(ActionEvent a) {
-            controler.CHomeUser d = new controler.CHomeUser(new view.viewHomeUser(), view.getName());
+            CHomeAdmin c = new CHomeAdmin(new viewHomeAdmin(), view.getName());
             view.dispose();
         }
     }
@@ -66,18 +81,31 @@ public class CDetailInventaris {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            try {
+            if (popup.getButtonText().equals("save")) {
                 if (model.insertDataInventaris(popup.getdata())) {
-                    view.message("input data Inventaris berhasil");
+                    view.message("insert data Inventaris berhasil");
                 } else {
-                    view.message("input data Inventaris gagal cek kembali inputan anda");
+                    view.message("insert data Inventaris gagal cek kembali inputan anda");
                 }
-                view.setTableModel(model.getDatainventaris());
+                try {
+                    view.setTableModel(model.getDatainventaris());
+                } catch (SQLException ex) {
+                    Logger.getLogger(CDetailInventaris.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 popup.dispose();
-            } catch (SQLException ex) {
-                Logger.getLogger(CDetailInventaris.class.getName()).log(Level.SEVERE, null, ex);
+            } else {
+                try {
+                    if (model.updateDataInventaris(popup.getdata())) {
+                        view.message("update data Inventaris berhasil");
+                    } else {
+                        view.message("update data Inventaris gagal cek kembali inputan anda");
+                    }
+                    view.setTableModel(model.getDatainventaris());
+                    popup.dispose();
+                } catch (SQLException ex) {
+                    Logger.getLogger(CDetailInventaris.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-
         }
 
     }
@@ -86,8 +114,7 @@ public class CDetailInventaris {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            controler.CHomeUser d = new controler.CHomeUser(new view.viewHomeUser(), view.getName());
-            view.dispose();
+            System.exit(0);
         }
     }
 

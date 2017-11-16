@@ -33,16 +33,17 @@ public class viewDetailInventaris extends javax.swing.JFrame {
     public void setTableModel(DefaultTableModel table) {
         this.tabel.setModel(table);
     }
-
+    
     public int getSelectedRow() {
         return this.tabel.getSelectedRow();
     }
 
     public String[] getDataOnTable() {
-        String data[] = new String[3];
+        String data[] = new String[4];
         data[0] = tabel.getValueAt(this.getSelectedRow(), 0).toString() ;
         data[1] = tabel.getValueAt(this.getSelectedRow(), 1).toString() ;
         data[2] = tabel.getValueAt(this.getSelectedRow(), 2).toString() ;
+        data[3] = tabel.getValueAt(this.getSelectedRow(), 3).toString() ;
         return data;
     }
 
@@ -111,6 +112,7 @@ public class viewDetailInventaris extends javax.swing.JFrame {
         getContentPane().add(tombolminimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(1290, 0, -1, 20));
 
         tabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tabel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

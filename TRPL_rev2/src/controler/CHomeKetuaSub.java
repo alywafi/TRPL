@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.MPeramalan;
 import view.viewHasilPeramalan;
 import view.viewPeramalan;
 import view.viewHomeKetuaSub;
@@ -28,7 +29,21 @@ public class CHomeKetuaSub {
         view.klikexit(new exitaction());
         view.klikminimize(new minimizeaction());
         view.klikRamalan(new ramalanAction());
+        view.klikLogout(new LogoutAtion());
         view.setVisible(true);
+    }
+
+    private class LogoutAtion implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            view.dispose();
+            try {
+                controler.CLogin a = new controler.CLogin(new view.viewLogin(), new model.MLogin());
+            } catch (SQLException ex) {
+                Logger.getLogger(CHomeAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 
     private class ramalanAction implements ActionListener {
@@ -37,7 +52,7 @@ public class CHomeKetuaSub {
         public void actionPerformed(ActionEvent e) {
             view.dispose();
             try {
-                CPeramalan a = new CPeramalan(new viewPeramalan(), new viewHasilPeramalan(), view.Getname());
+                CPeramalan a = new CPeramalan(new viewPeramalan(), new viewHasilPeramalan(), new MPeramalan(), view.Getname());
             } catch (SQLException ex) {
                 Logger.getLogger(CHomeKetuaUmum.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -48,11 +63,7 @@ public class CHomeKetuaSub {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            try {
-                controler.CLogin a = new controler.CLogin(new view.viewLogin(), new model.MLogin());
-                view.dispose();
-            } catch (SQLException ex) {
-            }
+            System.exit(0);
         }
 
     }

@@ -113,6 +113,7 @@ public class viewTebarBibit extends javax.swing.JFrame {
         getContentPane().add(tombolminimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(1290, 0, -1, 20));
 
         tabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tabel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -127,7 +128,7 @@ public class viewTebarBibit extends javax.swing.JFrame {
         tabel.setOpaque(false);
         jScrollPane1.setViewportView(tabel);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 820, 380));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 1160, 380));
 
         btnubah.setText("ubah");
         getContentPane().add(btnubah, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, -1, -1));

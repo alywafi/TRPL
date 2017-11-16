@@ -24,25 +24,47 @@ public class popup_detailinvntaris extends javax.swing.JFrame {
     }
 
     public String[] getdata() {
-        String[] data = new String[5];
+        String[] data = new String[4];
         data[0] = id_inventaris.getText();
         data[1] = nama_inventari.getText();
         data[2] = stok_inventaris.getText();
+        data[3] = stock_ready.getText();
         return data;
 
     }
-    public void IdEditable () {
+
+    public void IdEditable() {
         id_inventaris.setEditable(false);
     }
 
     public void setdata(String data[]) {
-         id_inventaris.setText(data[0]);
+        id_inventaris.setText(data[0]);
         nama_inventari.setText(data[1]);
         stok_inventaris.setText(data[2]);
+        stock_ready.setText(data[3]);
     }
 
     public void simpan(ActionListener a) {
         btnsimpan.addActionListener(a);
+    }
+
+    public void setButtonText(String text) {
+        btnsimpan.setText(text);
+    }
+
+    public String getButtonText() {
+        return btnsimpan.getText();
+    }
+
+    public void setStokText(String x) {
+        LStok.setText(x);
+    }
+    public String getStokText() {
+        return LStok.getText();
+    }
+    public void setenablestockready (boolean set){
+    stock_ready.setEnabled(set);
+    stockready.setEnabled(set);
     }
 
     /**
@@ -56,11 +78,13 @@ public class popup_detailinvntaris extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        LStok = new javax.swing.JLabel();
         id_inventaris = new javax.swing.JTextField();
         nama_inventari = new javax.swing.JTextField();
         stok_inventaris = new javax.swing.JTextField();
         btnsimpan = new javax.swing.JButton();
+        stock_ready = new javax.swing.JTextField();
+        stockready = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,13 +92,13 @@ public class popup_detailinvntaris extends javax.swing.JFrame {
 
         jLabel2.setText("nama barang");
 
-        jLabel3.setText("stok");
+        LStok.setText("stok");
 
         id_inventaris.setEditable(false);
 
-        nama_inventari.setEditable(false);
-
         btnsimpan.setText("simpan");
+
+        stockready.setText("stock ready");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -90,12 +114,14 @@ public class popup_detailinvntaris extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel3))
+                            .addComponent(LStok)
+                            .addComponent(stockready))
                         .addGap(74, 74, 74)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(stock_ready)
                             .addComponent(id_inventaris)
                             .addComponent(nama_inventari)
-                            .addComponent(stok_inventaris, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(stok_inventaris, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE))
                         .addGap(187, 187, 187))))
         );
         layout.setVerticalGroup(
@@ -111,9 +137,13 @@ public class popup_detailinvntaris extends javax.swing.JFrame {
                     .addComponent(nama_inventari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(LStok)
                     .addComponent(stok_inventaris, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(stock_ready, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(stockready))
+                .addGap(16, 16, 16)
                 .addComponent(btnsimpan)
                 .addContainerGap(64, Short.MAX_VALUE))
         );
@@ -158,12 +188,14 @@ public class popup_detailinvntaris extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LStok;
     private javax.swing.JButton btnsimpan;
     private javax.swing.JTextField id_inventaris;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField nama_inventari;
+    private javax.swing.JTextField stock_ready;
+    private javax.swing.JLabel stockready;
     private javax.swing.JTextField stok_inventaris;
     // End of variables declaration//GEN-END:variables
 }

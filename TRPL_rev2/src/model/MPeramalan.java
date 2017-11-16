@@ -5,10 +5,14 @@
  */
 package model;
 
+import java.sql.SQLException;
+
 /**
  *
  * @author USER
  */
-public class MPeramalan  {
-    
+public class MPeramalan extends modelmaster {
+    public MPeramalan() throws SQLException {
+        super();
+    }
 }
