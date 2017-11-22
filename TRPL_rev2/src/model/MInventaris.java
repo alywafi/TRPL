@@ -72,21 +72,22 @@ return execute(query);
     public DefaultTableModel getDataDaftarPeminjamanbelumterverifikasi() throws SQLException {
 
         String data[] = {"id_peminjaman", "nama_user", "nama_barang", "stock_ready", "barang yg di pinjam"};
-        String query = "SELECT `id_peminjaman`, `user`, `nama_barang`, `stok_ready`, `jumlah`, `status` FROM `peminjaman_inventaris` p join inventaris i on (p.id_inventaris=i.id_inventaris) join status_peminjaman s on (p.id_status=s.id_status) join pengguna pe on (p.id_user=pe.id_user)";
+        String query = "SELECT `id_peminjaman`, `user`, `nama_barang`, `stok_ready`, `jumlah`, `status` FROM `peminjaman_inventaris` p join inventaris i on "
+                + "(p.id_inventaris=i.id_inventaris) join status_peminjaman s on (p.id_status=s.id_status) join pengguna pe on (p.id_user=pe.id_user) where p.id_status=1";
         return getDatatotal(query, data);
     }
     public DefaultTableModel getDataDaftarPeminjamanterverifikasi() throws SQLException {
 
         String data[] = {"id_peminjaman", "nama_user", "nama_barang", "stock_ready", "barang yg di pinjam"};
         String query = "SELECT `id_peminjaman`, `user`, `nama_barang`, `stok_ready`, `jumlah`, `status` FROM `peminjaman_inventaris` p join inventaris i on (p.id_inventaris=i.id_inventaris) "
-                + "join status_peminjaman s on (p.id_status=s.id_status) join pengguna pe on (p.id_user=pe.id_user) where status = 2";
+                + "join status_peminjaman s on (p.id_status=s.id_status) join pengguna pe on (p.id_user=pe.id_user) where p.id_status = 2";
         return getDatatotal(query, data);
     }
     public DefaultTableModel getDataDaftarPeminjamanselesai() throws SQLException {
 
         String data[] = {"id_peminjaman", "nama_user", "nama_barang", "stock_ready", "barang yg di pinjam"};
         String query = "SELECT `id_peminjaman`, `user`, `nama_barang`, `stok_ready`, `jumlah`, `status` FROM `peminjaman_inventaris` p join inventaris i on "
-                + "(p.id_inventaris=i.id_inventaris) join status_peminjaman s on (p.id_status=s.id_status) join pengguna pe on (p.id_user=pe.id_user) where status = 3 ";
+                + "(p.id_inventaris=i.id_inventaris) join status_peminjaman s on (p.id_status=s.id_status) join pengguna pe on (p.id_user=pe.id_user) where p.id_status = 3 ";
         return getDatatotal(query, data);
     }
     public DefaultTableModel getDataDaftarPeminjamangagal() throws SQLException {

@@ -48,6 +48,13 @@ public class popup_verifikasi extends javax.swing.JFrame {
     public String getjumlahbarangpinjam() {
         return barangpinjam.getText();
     }
+    public String getstatus() {
+        return setstatus.getText();
+    }
+    public void setstatus (String set){
+    setstatus.setText(set);
+    }
+    
 
     public String getId() {
         String ID = IDPeminjaman.getText();
@@ -74,6 +81,7 @@ public class popup_verifikasi extends javax.swing.JFrame {
         namabarang = new javax.swing.JLabel();
         barangtersedia = new javax.swing.JLabel();
         barangpinjam = new javax.swing.JLabel();
+        setstatus = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 51, 0));
@@ -138,15 +146,20 @@ public class popup_verifikasi extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(107, 107, 107)
                                         .addComponent(namabarang, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(setstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(IDPeminjaman, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(IDPeminjaman, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(setstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -224,5 +237,6 @@ public class popup_verifikasi extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel namabarang;
+    private javax.swing.JLabel setstatus;
     // End of variables declaration//GEN-END:variables
 }

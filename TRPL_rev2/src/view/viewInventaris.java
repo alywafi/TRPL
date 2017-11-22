@@ -95,11 +95,15 @@ public class viewInventaris extends javax.swing.JFrame {
     public void klikdaftar(ActionListener action) {
         btndaftar.addActionListener(action);
     }
+    public void klikselesai(ActionListener action) {
+        selesai.addActionListener(action);
+    }
     
     public void setvisibleverifikasi(boolean set) {
         ver_peminjaman.setVisible(set);
         ver_pengembalian.setVisible(set);
-        
+        ver_peminjaman.setEnabled(set);
+        ver_pengembalian.setEnabled(set);
         btnverifi.setVisible(!set);
     }
 
@@ -109,6 +113,9 @@ public class viewInventaris extends javax.swing.JFrame {
 
     public void setenablepengembalian(boolean set) {
         ver_pengembalian.setEnabled(set);
+    }
+    public void setenableselesi(boolean set) {
+        selesai.setEnabled(set);
     }
 
     public void setvisibleverifi(boolean set) {
@@ -158,6 +165,7 @@ public class viewInventaris extends javax.swing.JFrame {
         ver_peminjaman = new javax.swing.JButton();
         ver_pengembalian = new javax.swing.JButton();
         btnverifi = new javax.swing.JButton();
+        selesai = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -226,6 +234,9 @@ public class viewInventaris extends javax.swing.JFrame {
         btnverifi.setText("verifi");
         getContentPane().add(btnverifi, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, -1, -1));
 
+        selesai.setText("selesai");
+        getContentPane().add(selesai, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 140, -1, -1));
+
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/HomeAnggotaKelompok.png"))); // NOI18N
         background.setText("jLabel1");
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 770));
@@ -284,6 +295,7 @@ public class viewInventaris extends javax.swing.JFrame {
     private javax.swing.JButton btnpinjam;
     private javax.swing.JButton btnverifi;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton selesai;
     private javax.swing.JTable tabel;
     private javax.swing.JButton tombolexit;
     private javax.swing.JButton tombolminimize;
