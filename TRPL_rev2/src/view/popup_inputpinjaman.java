@@ -19,8 +19,9 @@ public class popup_inputpinjaman extends javax.swing.JFrame {
      * Creates new form popup_inputpinjaman
      */
     public popup_inputpinjaman() {
-        this.setLocationRelativeTo(this);
+        
         initComponents();
+        this.setLocationRelativeTo(this);
     }
 
     public String[] getdata() {
@@ -57,6 +58,7 @@ public class popup_inputpinjaman extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         id_peminjaman = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -76,7 +78,9 @@ public class popup_inputpinjaman extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setLocationByPlatform(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Isikan ketentuan Berikut Ini");
@@ -184,6 +188,7 @@ public class popup_inputpinjaman extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nama;
     private javax.swing.JTextField tanggal_pinjam;
     // End of variables declaration//GEN-END:variables

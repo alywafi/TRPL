@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.MPeramalan;
+import view.popup_inputhasilforum;
 import view.viewHasilPeramalan;
 import view.viewPeramalan;
 import view.viewLogin;
@@ -26,10 +27,11 @@ public class CHomeUser {
 
     viewHomeUser view;
     viewLogin Vlogin;
+    String username;
 
     public CHomeUser(viewHomeUser view, String Username) {
         this.view = view;
-        this.Vlogin = Vlogin;
+        this.username = Username;
         view.klikexit(new exitaction());
         view.klikLogout(new logoutAction());
         view.klikminimize(new minimizeaction());
@@ -46,9 +48,10 @@ public class CHomeUser {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            view.dispose();
+
             try {
-                CPeramalan a = new CPeramalan(new viewPeramalan(), new viewHasilPeramalan(),new MPeramalan() , view.Getname() );
+                CPeramalan a = new CPeramalan(new viewPeramalan(), new viewHasilPeramalan(), new MPeramalan(), view.Getname());
+                view.dispose();
             } catch (SQLException ex) {
                 Logger.getLogger(CHomeKetuaUmum.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -59,9 +62,10 @@ public class CHomeUser {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            view.dispose();
+
             try {
                 controler.CLogin a = new controler.CLogin(new view.viewLogin(), new model.MLogin());
+                view.dispose();
             } catch (SQLException ex) {
                 Logger.getLogger(CHomeUser.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -73,7 +77,7 @@ public class CHomeUser {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                controler.CInventaris a = new controler.CInventaris(new view.viewInventaris(), new model.MInventaris(), new view.popup_inputpinjaman(), new popup_verifikasi(), view.Getname());
+                controler.CInventaris a = new controler.CInventaris(new view.viewInventaris(), new model.MInventaris(), new view.popup_inputpinjaman(), new popup_verifikasi(), username);
                 view.dispose();
             } catch (SQLException ex) {
                 ex.getStackTrace();
@@ -86,36 +90,34 @@ public class CHomeUser {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                System.out.println("getnama view user " + view.Getname());
-                view.dispose();
                 controler.CTebarBibit a = new controler.CTebarBibit(new view.viewTebarBibit(), new model.MBibit(), new view.popup_tebar(), view.Getname());
-
+                view.dispose();
             } catch (SQLException ex) {
                 Logger.getLogger(CHomeUser.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         }
-
     }
-private class klikforum implements ActionListener {
+
+    private class klikforum implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                controler.Cforum a = new controler.Cforum(new view.viewforum(), new model.Mforum(), new view.popup_inputdataforum(), view.Getname());
+                controler.Cforum a = new controler.Cforum(new view.viewforum(), new model.Mforum(), new view.popup_inputdataforum(), new popup_inputhasilforum() ,view.Getname());
                 view.dispose();
             } catch (SQLException ex) {
                 ex.getStackTrace();
             }
         }
     }
+
     private class exitaction implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
             System.exit(0);
         }
-
     }
 
     private class minimizeaction implements ActionListener {

@@ -1,6 +1,5 @@
 package model;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 
@@ -10,18 +9,60 @@ public class Mforum extends modelmaster {
         super();
     }
 
-    public DefaultTableModel getDataforum() throws SQLException {
-        String kolom[] = {"id_inventaris", "nama", "Stok Total", "Tersedia"};
-        String query = "select * from inventaris;";
+    public DefaultTableModel getDataforumwithid(String ID) throws SQLException {
+        String kolom[] = {"id_masalah", "id_user", "judul", "isi", "tgl_masalah", "selesai", "hasil"};
+        String query = "select * from forum where `id_user` = " + ID + ";";
         return getDatatotal(query, kolom);
     }
 
-    public boolean insertDatapeminjaman(String id) {
-        String query = "INSERT INTO `peminjaman_barang` (`id_peminjaman`, `id_user`, `id_inventaris`, `tanggal`) VALUES (null, 1, " + id + ", '2017-10-03');";
+    public DefaultTableModel getDataforum() throws SQLException {
+        String kolom[] = {"id_masalah", "id_user", "judul", "isi", "tgl_masalah", "selesai", "hasil"};
+        String query = "select * from forum";
+        return getDatatotal(query, kolom);
+    }
+
+    public DefaultTableModel getDataforumselesai() throws SQLException {
+        String kolom[] = {"id_masalah", "id_user", "judul", "isi", "tgl_masalah ", "selesai", "hasil"};
+        String query = "SELECT * FROM forum WHERE selesai = 1  ";
+        return getDatatotal(query, kolom);
+    }
+
+    public DefaultTableModel getDataforumbelum() throws SQLException {
+        String kolom[] = {"id_masalah", "id_user", "judul", "isi", "tgl_masalah", "selesai", "hasil"};
+        String query = "SELECT * FROM forum WHERE selesai = 0 ";
+        return getDatatotal(query, kolom);
+    }
+
+    public DefaultTableModel getDataforumselesaiwithid(String id) throws SQLException {
+        String kolom[] = {"id_masalah", "judul", "isi", "tgl_masalah", "selesai","hasil"};
+        String query = "SELECT id_masalah, judul, isi, tgl_masalah , selesai ,hasil FROM forum WHERE id_user = " + id + " and selesai = 1 ";
+        return getDatatotal(query, kolom);
+    }
+
+    public DefaultTableModel getDataforumbelumwithid(String id) throws SQLException {
+        String kolom[] = {"id_masalah", "judul", "isi", "tgl_masalah", "selesai","hasil"};
+        String query = "SELECT id_masalah, judul, isi, tgl_masalah , selesai ,hasil FROM forum WHERE id_user = " + id + " and selesai = 0 ";
+        return getDatatotal(query, kolom);
+    }
+
+    public boolean insertDataforum(String[] data) {
+        String query = "INSERT INTO `inventaris` (`id_inventaris`, `nama_barang`, `stok`) VALUES (" + data[0] + "," + data[1] + "," + data[2];
         return execute(query);
     }
-       public boolean insertDataforum(String [] data) {
-        String query = "INSERT INTO `inventaris` (`id_inventaris`, `nama_barang`, `stok`) VALUES ("+data[0]+","+data[1] +"," + data[2] ;
+
+    public boolean updateDataforum(String[] data) {
+        String query = "UPDATE `forum` SET `judul`='" + data[0] + "',`isi`='" + data[1] + "',`selesai`= " + data[3] + " WHERE `id_masalah` = " + data[0];
+        return execute(query);
+    }
+
+    public boolean updateDataforumadmin(String[] data) {
+//        String query = "UPDATE `forum` SET `judul`='"+data[0]+"',`isi`='"+data[1]+"',`selesai`= "+data[3]+" , hasil = "+data[5]+" WHERE `id_masalah` = "+data[0];
+System.out.println("judul = "+data[0]);
+        System.out.println("isi " +data[1]);
+        System.out.println("selesai "+data[3]);
+        System.out.println("hasil "+data[3]);
+        System.out.println("id maslah"+data[4]);
+        String query = "UPDATE `forum` SET `judul`='" + data[0] + "',`isi`='" + data[1] + "', `selesai`= " + data[3] + ",`hasil`='" + data[5] + "' WHERE `id_masalah` = " + data[4];
         return execute(query);
     }
 
@@ -32,31 +73,11 @@ public class Mforum extends modelmaster {
         return execute(query);
     }
 
-    public String[] getDataWithID(String ID) throws SQLException {
-        String data[] = new String[5];
-        String query = "select * from forum ;";
-        return getdataid(query, data);
-    }
-
-    public DefaultTableModel getDataforumwithid(String ID) throws SQLException {
-        String data[] = new String[5];
-        String query = "select `id_masalah`,`judul`,isi,tgl_masalah,selesai from forum where `id_user` = " + ID + ";";
-        return getDatatotal(query, data);
-    }
-
-    public DefaultTableModel getDataDaftarPeminjaman() throws SQLException {
-
-        String data[] = new String[5];
-        String query = "select id_peminjaman, id_inventaris,id_user,tanggal_kembali,s.status from peminjaman_inventaris p join status_peminjaman s on s.id_status = p.id_status";
-        return getDatatotal(query, data);
-    }
-
     public boolean setDataforum(String[] data) throws SQLException {
-        for (int i = 0; i < data.length; i++) {
-            System.out.println(data[i]);
-            
-        }
-        String query = "INSERT INTO `forum` (`id_masalah`, `id_user`, `judul`, `isi`, `tgl_masalah`, `selesai`) VALUES (NULL, '"+data[3]+"', '"+data[1]+"', '"+data[2]+"', CURRENT_DATE, '1');";
+        System.out.println("id user = " + data[2]);
+        System.out.println("judul " + data[0]);
+        System.out.println("isi " + data[1]);
+        String query = "INSERT INTO `forum`(`id_user`, `judul`, `isi`, `tgl_masalah`, `selesai`) VALUES (" + data[2] + ",'" + data[0] + "','" + data[1] + "',CURRENT_DATE,0)";
         return execute(query);
     }
 }

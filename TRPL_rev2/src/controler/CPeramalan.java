@@ -34,11 +34,14 @@ public class CPeramalan {
     viewPeramalan view;
     viewHasilPeramalan view2;
     MPeramalan model ;
+    
+    String username;
 
     public CPeramalan(viewPeramalan view1, viewHasilPeramalan View2, MPeramalan Model, String Username) throws SQLException {
         view = view1;
         view2 = View2;
         model = Model ;
+        this.username=Username;
         view.setVisible(true);
         view.klikexit(new exitaction());
         view2.klikexit(new exitaction());
@@ -57,7 +60,22 @@ public class CPeramalan {
 
             String DataRamal[] = new String[2];
             DataRamal = view.getDataRamal();
-            view2.setVisible(true);
+            if (DataRamal[0].isEmpty()) {
+                view.message("jumlah bibit kosong harap masukan jumlah bibit");
+            }
+            else if (DataRamal[1].isEmpty()) {
+                view.message("lebar kolam kosong harap masukan lebar kolam");
+            }
+            else if (!DataRamal[0].matches("[0-9]*") || !DataRamal[1].matches("[0-9]*")) {
+                view.message("inputan harus angka");
+            }
+            else {
+            ramal(DataRamal);
+            }
+        }
+    }
+public void ramal (String[] DataRamal){
+ view2.setVisible(true);
             int RataTebar = Integer.valueOf(DataRamal[0]) / Integer.valueOf(DataRamal[1]);
             float koefKecil = (float) 0.11;
             float KelangsunganHidup = (float) 0.6;
@@ -200,23 +218,29 @@ public class CPeramalan {
             table2.addRow(row2);
             view2.tableKebutuhamPemeliharaan().setModel(table2);
 
-        }
-    }
-
+}
     private class BackAction implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent a) {
             try {
-                if (model.getidwithusername(view.Getname()).equals("4") ) {
-                    controler.CHomeUser d = new controler.CHomeUser(new viewHomeUser(), view.Getname());
-                }else if (model.getidwithusername(view.Getname()).equals("3")) {
-                    CHomeKetuaSub b = new CHomeKetuaSub(new viewHomeKetuaSub());
-                }else {
-                    CHomeKetuaUmum c = new CHomeKetuaUmum(new viewHomeKetuaUmum(), view.Getname());
+                System.out.println("jabatanya = "+model.getJabatan(username));
+                if (model.getJabatan(username).equalsIgnoreCase("4")) {
+                    controler.CHomeUser d = new controler.CHomeUser(new view.viewHomeUser(), username);
+                } 
+                if (model.getJabatan(username).equalsIgnoreCase("1"))
+                {
+                    controler.CHomeAdmin e = new controler.CHomeAdmin(new view.viewHomeAdmin(), username);
                 }
+                if (model.getJabatan(username).equalsIgnoreCase("2")) {
+                    controler.CHomeKetuaUmum f = new controler.CHomeKetuaUmum(new view.viewHomeKetuaUmum(), username);
+                }
+                if (model.getJabatan(username).equalsIgnoreCase("3")) {
+                    controler.CHomeKetuaSub g = new controler.CHomeKetuaSub(new view.viewHomeKetuaSub(),username);
+                }
+                view.dispose();
             } catch (SQLException ex) {
-                Logger.getLogger(CPeramalan.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Cforum.class.getName()).log(Level.SEVERE, null, ex);
             }
             view.dispose();
         }

@@ -33,7 +33,7 @@ public class viewInventaris extends javax.swing.JFrame {
     public String Getname() {
         return Nametag.getText();
     }
-
+    
     public void setenablebtnpinjam(boolean x) {
         btnpinjam.setEnabled(x);
     }
@@ -46,9 +46,24 @@ public class viewInventaris extends javax.swing.JFrame {
         return this.tabel.getSelectedRow();
     }
     
+    public String[] getdata() {
+        String data[] = new String[5];
+        data[0] = this.tabel.getValueAt(this.getSelectedRow(), 0).toString();
+        data[1] = this.tabel.getValueAt(this.getSelectedRow(), 1).toString();
+        data[2] = this.tabel.getValueAt(this.getSelectedRow(), 2).toString();
+        data[3] = this.tabel.getValueAt(this.getSelectedRow(), 3).toString();
+        data[4] = this.tabel.getValueAt(this.getSelectedRow(), 4).toString();
+        return data;
+    }
+    
     public String GetIDTable() {
         return this.tabel.getValueAt(this.getSelectedRow(), 0).toString();
     }
+    
+    public String GetNamaBarang() {
+        return this.tabel.getValueAt(this.getSelectedRow(), 2).toString();
+    }
+    
     public String GetStatusTable() {
         return this.tabel.getValueAt(this.getSelectedRow(), 4).toString();
     }
@@ -68,30 +83,52 @@ public class viewInventaris extends javax.swing.JFrame {
     public void klikcari(ActionListener action) {
         btncari.addActionListener(action);
     }
-
-    public void klikVerifikasi(ActionListener action) {
-        btnverifikasi.addActionListener(action);
+    
+    public void klikVerifikasipeminjaman(ActionListener action) {
+        ver_peminjaman.addActionListener(action);
     }
-
+    
+    public void klikVerifikasipengembalian(ActionListener action) {
+        ver_pengembalian.addActionListener(action);
+    }
     
     public void klikdaftar(ActionListener action) {
         btndaftar.addActionListener(action);
     }
-
+    
     public void setvisibleverifikasi(boolean set) {
-        btnverifikasi.setVisible(set);
-
+        ver_peminjaman.setVisible(set);
+        ver_pengembalian.setVisible(set);
+        
+        btnverifi.setVisible(!set);
     }
+
+    public void setenablepeminjaman(boolean set) {
+        ver_peminjaman.setEnabled(set);
+    }
+
+    public void setenablepengembalian(boolean set) {
+        ver_pengembalian.setEnabled(set);
+    }
+
+    public void setvisibleverifi(boolean set) {
+        btnverifi.setVisible(set);
+    }
+
+    public void klikverifi(ActionListener action) {
+        btnverifi.addActionListener(action);
+    }
+    
     public void setvisiblPeminjaman(boolean set) {
-        btnpinjam .setVisible(set);
+        btnpinjam.setVisible(set);
         btndaftar.setVisible(set);
     }
-
+    
     public String getButtonText() {
         String text = btndaftar.getText();
         return text;
     }
-
+    
     public void setButtonText(String t) {
         btndaftar.setText(t);
     }
@@ -118,7 +155,9 @@ public class viewInventaris extends javax.swing.JFrame {
         btndaftar = new javax.swing.JButton();
         Nametag = new javax.swing.JLabel();
         btnback = new javax.swing.JButton();
-        btnverifikasi = new javax.swing.JButton();
+        ver_peminjaman = new javax.swing.JButton();
+        ver_pengembalian = new javax.swing.JButton();
+        btnverifi = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -154,16 +193,16 @@ public class viewInventaris extends javax.swing.JFrame {
         tabel.setOpaque(false);
         jScrollPane1.setViewportView(tabel);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 820, 380));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 820, 380));
 
         btnpinjam.setText("pinjam barang");
         getContentPane().add(btnpinjam, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, -1, -1));
 
         btncari.setText("cari");
-        getContentPane().add(btncari, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, -1, -1));
+        getContentPane().add(btncari, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, -1, -1));
 
         btndaftar.setText("daftar pinjaman");
-        getContentPane().add(btndaftar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, -1, -1));
+        getContentPane().add(btndaftar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, -1, -1));
 
         Nametag.setFont(new java.awt.Font("Caviar Dreams", 0, 18)); // NOI18N
         Nametag.setForeground(new java.awt.Color(255, 255, 255));
@@ -177,8 +216,15 @@ public class viewInventaris extends javax.swing.JFrame {
         btnback.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/backmouseover.png"))); // NOI18N
         getContentPane().add(btnback, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, -1, -1));
 
-        btnverifikasi.setText("verifikasi");
-        getContentPane().add(btnverifikasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 140, 120, -1));
+        ver_peminjaman.setText("verifikasi peminjaman");
+        ver_peminjaman.setAutoscrolls(true);
+        getContentPane().add(ver_peminjaman, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 140, 210, -1));
+
+        ver_pengembalian.setText("verifikasi pengembalian");
+        getContentPane().add(ver_pengembalian, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 140, -1, -1));
+
+        btnverifi.setText("verifi");
+        getContentPane().add(btnverifi, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, -1, -1));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/HomeAnggotaKelompok.png"))); // NOI18N
         background.setText("jLabel1");
@@ -236,10 +282,12 @@ public class viewInventaris extends javax.swing.JFrame {
     private javax.swing.JButton btncari;
     private javax.swing.JButton btndaftar;
     private javax.swing.JButton btnpinjam;
-    private javax.swing.JButton btnverifikasi;
+    private javax.swing.JButton btnverifi;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabel;
     private javax.swing.JButton tombolexit;
     private javax.swing.JButton tombolminimize;
+    private javax.swing.JButton ver_peminjaman;
+    private javax.swing.JButton ver_pengembalian;
     // End of variables declaration//GEN-END:variables
 }

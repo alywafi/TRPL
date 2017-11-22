@@ -6,8 +6,6 @@
 package view;
 
 import java.awt.event.ActionListener;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  *
@@ -19,32 +17,50 @@ public class popup_inputdataforum extends javax.swing.JFrame {
      * Creates new form popup_inputpinjaman
      */
     public popup_inputdataforum() {
-        this.setLocationRelativeTo(this);
+       
         initComponents();
+         setLocationRelativeTo(this);
     }
 
     public String[] getdata() {
         String[] data = new String[5];
-        data[0] = id_masalah.getText();
-        data[1] = judul.getText();
-        data[2] = isi.getText();
-        data[3] = IdPengguna.getText();
+        data[0] = judul.getText();
+        data[1] = isi.getText();
+        data[2] = IdPengguna.getText();
+        data[3] = selesai.getSelectedItem().toString();
+        data[4]=id_masalah.getText();
+        System.out.println("selesai = " + data[3]);
         return data;
     }
 
-    public void setdata(String[] data) {
-        id_peminjaman.setText("1");
+    public void setdatainput(String[] data) {
+        id_masalah.setText("ndak tau");
+        IdPengguna.setText(data[0]);
+        nama.setText(data[3]);
+        tanggalinput.setText(data[1]);
+    }
+
+    public void setdataubah(String[] data, String username) {
         id_masalah.setText(data[0]);
-        nama.setText(data[1]);
-        Date s = new Date();
-        SimpleDateFormat kal = new SimpleDateFormat("yyyy-dd-MM");
-        tanggal_pinjam.setText(kal.format(s));
+        judul.setText(data[1]);
+        isi.setText(data[2]);
+        tanggalinput.setText(data[3]);
+//        selesai.setSelectedIndex(Integer.parseInt(data[5]));
+        nama.setText(username);
+        
     }
-    public void setidpeminjam (String a){
-        IdPengguna.setText(a);
+
+    public void setsimpan(String set) {
+        btnSimpan.setText(set);
     }
-    public void simpan (ActionListener a) {
+
+    public String getbtnsimpan() {
+        return btnSimpan.getText();
+    }
+
+    public void simpan(ActionListener a) {
         btnSimpan.addActionListener(a);
+        dispose();
     }
 
     /**
@@ -57,40 +73,34 @@ public class popup_inputdataforum extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        id_peminjaman = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         id_masalah = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         judul = new javax.swing.JTextField();
         keterangan = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         nama = new javax.swing.JTextField();
-        tanggal_pinjam = new javax.swing.JTextField();
+        tanggalinput = new javax.swing.JTextField();
         btnSimpan = new javax.swing.JButton();
         IdPengguna = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         isi = new javax.swing.JTextArea();
+        selesai = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Isikan ketentuan Berikut Ini");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 27, -1, -1));
 
-        id_peminjaman.setEditable(false);
-        getContentPane().add(id_peminjaman, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 60, 251, -1));
+        id_masalah.setEditable(false);
+        getContentPane().add(id_masalah, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 60, 251, -1));
 
         jLabel2.setText("id masalah");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 62, -1, -1));
-
-        jLabel3.setText("id_inventaris");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(413, 62, -1, -1));
-
-        id_masalah.setEditable(false);
-        getContentPane().add(id_masalah, new org.netbeans.lib.awtextra.AbsoluteConstraints(521, 60, 143, -1));
 
         jLabel4.setText("judul");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
@@ -108,10 +118,10 @@ public class popup_inputdataforum extends javax.swing.JFrame {
         nama.setEditable(false);
         getContentPane().add(nama, new org.netbeans.lib.awtextra.AbsoluteConstraints(521, 91, 143, -1));
 
-        tanggal_pinjam.setEditable(false);
-        getContentPane().add(tanggal_pinjam, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 246, -1));
+        tanggalinput.setEditable(false);
+        getContentPane().add(tanggalinput, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 246, -1));
 
-        btnSimpan.setText("Simpan data");
+        btnSimpan.setText("simpan");
         getContentPane().add(btnSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(499, 313, -1, -1));
 
         IdPengguna.setEditable(false);
@@ -125,6 +135,12 @@ public class popup_inputdataforum extends javax.swing.JFrame {
         jScrollPane1.setViewportView(isi);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 240, 110));
+
+        selesai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1" }));
+        getContentPane().add(selesai, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 150, -1, -1));
+
+        jLabel3.setText("selesai");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -171,7 +187,6 @@ public class popup_inputdataforum extends javax.swing.JFrame {
     private javax.swing.JTextField IdPengguna;
     private javax.swing.JButton btnSimpan;
     private javax.swing.JTextField id_masalah;
-    private javax.swing.JTextField id_peminjaman;
     private javax.swing.JTextArea isi;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -184,6 +199,7 @@ public class popup_inputdataforum extends javax.swing.JFrame {
     private javax.swing.JTextField judul;
     private javax.swing.JLabel keterangan;
     private javax.swing.JTextField nama;
-    private javax.swing.JTextField tanggal_pinjam;
+    private javax.swing.JComboBox<String> selesai;
+    private javax.swing.JTextField tanggalinput;
     // End of variables declaration//GEN-END:variables
 }

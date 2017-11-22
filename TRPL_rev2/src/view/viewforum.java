@@ -39,10 +39,13 @@ public class viewforum extends javax.swing.JFrame {
     }
 
     public String[] getDataOnTable() {
-        String data[] = new String[3];
-        data[0] = tabel.getValueAt(this.getSelectedRow(), 0).toString() ;
-        data[1] = tabel.getValueAt(this.getSelectedRow(), 1).toString() ;
-        data[2] = tabel.getValueAt(this.getSelectedRow(), 2).toString() ;
+        String data[] = new String[6];
+        data[0] = tabel.getValueAt(this.getSelectedRow(), 0).toString() ;//id_masalah
+        data[1] = tabel.getValueAt(this.getSelectedRow(), 1).toString() ;//id_user
+        data[2] = tabel.getValueAt(this.getSelectedRow(), 2).toString() ;//judul
+        data[3] = tabel.getValueAt(this.getSelectedRow(), 3).toString() ;//isi
+        data[4] = tabel.getValueAt(this.getSelectedRow(), 4).toString() ;//tgl_masalah
+        data[5] = tabel.getValueAt(this.getSelectedRow(), 6).toString() ;//hasil
         return data;
     }
 
@@ -69,6 +72,12 @@ public class viewforum extends javax.swing.JFrame {
     public void KlikBack(ActionListener a) {
         btnback.addActionListener(a);
     }
+    public void Klikselesai(ActionListener a) {
+        selesai.addActionListener(a);
+    }
+    public void Klikbelum(ActionListener a) {
+        belum.addActionListener(a);
+    }
 
     public void message(String message) {
         JOptionPane.showMessageDialog(this, message);
@@ -91,6 +100,8 @@ public class viewforum extends javax.swing.JFrame {
         btntambah = new javax.swing.JButton();
         Nametag = new javax.swing.JLabel();
         btnback = new javax.swing.JButton();
+        selesai = new javax.swing.JButton();
+        belum = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -110,9 +121,11 @@ public class viewforum extends javax.swing.JFrame {
         tombolminimize.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/All_MinimizeMouseOver.png"))); // NOI18N
         getContentPane().add(tombolminimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(1290, 0, -1, 20));
 
+        tabel.setAutoCreateRowSorter(true);
         tabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         tabel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
@@ -144,6 +157,12 @@ public class viewforum extends javax.swing.JFrame {
         btnback.setContentAreaFilled(false);
         btnback.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/backmouseover.png"))); // NOI18N
         getContentPane().add(btnback, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, -1, -1));
+
+        selesai.setText("selesai");
+        getContentPane().add(selesai, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, -1, -1));
+
+        belum.setText("belum");
+        getContentPane().add(belum, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, -1, -1));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/HomeAnggotaKelompok.png"))); // NOI18N
         background.setText("jLabel1");
@@ -445,10 +464,12 @@ public class viewforum extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Nametag;
     private javax.swing.JLabel background;
+    private javax.swing.JButton belum;
     private javax.swing.JButton btnback;
     private javax.swing.JButton btntambah;
     private javax.swing.JButton btnubah;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton selesai;
     private javax.swing.JTable tabel;
     private javax.swing.JButton tombolexit;
     private javax.swing.JButton tombolminimize;

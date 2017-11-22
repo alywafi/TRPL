@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.MPeramalan;
+import view.popup_inputhasilforum;
 import view.viewHasilPeramalan;
 import view.viewPeramalan;
 import view.viewHomeKetuaSub;
@@ -23,13 +24,18 @@ import view.viewHomeKetuaSub;
 public class CHomeKetuaSub {
 
     viewHomeKetuaSub view;
+    String username;
+    String id;
 
-    public CHomeKetuaSub(viewHomeKetuaSub view) {
+    public CHomeKetuaSub(viewHomeKetuaSub view, String Username) {
+        this.username = Username;
         this.view = view;
         view.klikexit(new exitaction());
         view.klikminimize(new minimizeaction());
         view.klikRamalan(new ramalanAction());
         view.klikLogout(new LogoutAtion());
+        view.klikforum(new klikforum());
+        view.SetName(username);
         view.setVisible(true);
     }
 
@@ -37,9 +43,10 @@ public class CHomeKetuaSub {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            view.dispose();
+
             try {
                 controler.CLogin a = new controler.CLogin(new view.viewLogin(), new model.MLogin());
+                view.dispose();
             } catch (SQLException ex) {
                 Logger.getLogger(CHomeAdmin.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -50,11 +57,24 @@ public class CHomeKetuaSub {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            view.dispose();
+            
             try {
-                CPeramalan a = new CPeramalan(new viewPeramalan(), new viewHasilPeramalan(), new MPeramalan(), view.Getname());
+                CPeramalan a = new CPeramalan(new viewPeramalan(), new viewHasilPeramalan(), new MPeramalan(), username);
+                view.dispose();
             } catch (SQLException ex) {
                 Logger.getLogger(CHomeKetuaUmum.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    private class klikforum implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            try {
+                controler.Cforum a = new controler.Cforum(new view.viewforum(), new model.Mforum(), new view.popup_inputdataforum(),new popup_inputhasilforum() ,view.Getname());
+                view.dispose();
+            } catch (SQLException ex) {
+                ex.getStackTrace();
             }
         }
     }

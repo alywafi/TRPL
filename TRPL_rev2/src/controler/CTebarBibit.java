@@ -46,10 +46,10 @@ public class CTebarBibit {
     public DefaultTableModel gettabel() throws SQLException {
         String idjabatan = model.getJabatan(username);
         DefaultTableModel tabel = new DefaultTableModel();
-        if (idjabatan.equals("1") || idjabatan.equals("2")) {
+        if (idjabatan.equalsIgnoreCase("1") || idjabatan.equalsIgnoreCase("2")) {
             tabel = model.getDatatebar();
         }
-        if (idjabatan.equals("3") || idjabatan.equals("4")) {
+        if (idjabatan.equalsIgnoreCase("3") || idjabatan.equalsIgnoreCase("4")) {
             tabel = model.getDatatebar(model.getidwithusername(username));
         }
         return tabel;
@@ -68,8 +68,24 @@ public class CTebarBibit {
 
         @Override
         public void actionPerformed(ActionEvent a) {
-            controler.CHomeUser d = new controler.CHomeUser(new view.viewHomeUser(), view.getName());
-            view.dispose();
+            try {
+                if (model.getJabatan(username).equals("4")) {
+                    controler.CHomeUser d = new controler.CHomeUser(new view.viewHomeUser(), username);
+                } 
+                if (model.getJabatan(username).equals("1"))
+                {
+                    controler.CHomeAdmin e = new controler.CHomeAdmin(new view.viewHomeAdmin(), username);
+                }
+                if (model.getJabatan(username).equals("2")) {
+                    controler.CHomeKetuaUmum f = new controler.CHomeKetuaUmum(new view.viewHomeKetuaUmum(), username);
+                }
+                if (model.getJabatan(username).equals("3")) {
+                    controler.CHomeKetuaSub g = new controler.CHomeKetuaSub(new view.viewHomeKetuaSub(),username);
+                }
+                view.dispose();
+            } catch (SQLException ex) {
+                Logger.getLogger(Cforum.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 

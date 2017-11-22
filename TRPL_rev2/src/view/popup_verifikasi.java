@@ -19,25 +19,39 @@ public class popup_verifikasi extends javax.swing.JFrame {
      * Creates new form popup_tebar
      */
     public popup_verifikasi() {
-        this.setLocationRelativeTo(this);
+
         initComponents();
+        this.setLocationRelativeTo(this);
     }
-    public void SetJCombo (String it) {
-        JCStatus.setSelectedItem(it); ;
+
+    public void SetJCombo(String it) {
+        JCStatus.setSelectedItem(it);;
     }
+
     public int getComboBox() {
-    int data = JCStatus.getSelectedIndex();
-    return data ;
-}
+        int data = JCStatus.getSelectedIndex()+1;
+        return data;
+    }
+
     public void simpan(ActionListener a) {
         btnsimpan.addActionListener(a);
     }
-    public void setId (String ID) {
-    IDPeminjaman.setText(ID);
+
+    public void setdata(String data[]) {
+        IDPeminjaman.setText(data[0]);
+        namabarang.setText(data[1]);
+        barangtersedia.setText(data[2]);
+        barangpinjam.setText(data[4]);
+//        SetJCombo(data[4]);
     }
-    public String getId () {
-    String ID =IDPeminjaman.getText();
-    return ID ;
+
+    public String getjumlahbarangpinjam() {
+        return barangpinjam.getText();
+    }
+
+    public String getId() {
+        String ID = IDPeminjaman.getText();
+        return ID;
     }
 
     /**
@@ -54,56 +68,109 @@ public class popup_verifikasi extends javax.swing.JFrame {
         JCStatus = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         IDPeminjaman = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        namabarang = new javax.swing.JLabel();
+        barangtersedia = new javax.swing.JLabel();
+        barangpinjam = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 51, 0));
 
         jLabel1.setText("Status");
 
         btnsimpan.setText("simpan");
 
-        JCStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Belum terverifikasi", "Belum Mengembalikan dan membay", "Belum Membayar Inventaris", "Belum Mengembalikan Inventaris", "Lunas dan Telah mengembalikan" }));
+        JCStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Belum terverifikasi", "Belum Mengembalikan", "peminjaman selesai", "gagal diverifikasi" }));
 
         jLabel2.setText("ID Peminjaman");
+
+        jLabel3.setText("nama barang");
+
+        jLabel4.setText("jumlah barang yg tersedia");
+
+        jLabel5.setText("jumlah barang yg di pinjam");
+
+        namabarang.setText("jLabel6");
+
+        barangtersedia.setText("jLabel6");
+
+        barangpinjam.setText("jLabel6");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(530, Short.MAX_VALUE)
-                        .addComponent(btnsimpan))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(JCStatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(208, 208, 208)
+                        .addComponent(JCStatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(96, 96, 96))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(IDPeminjaman, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addGap(75, 75, 75))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 486, Short.MAX_VALUE)
+                                .addComponent(btnsimpan))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(barangpinjam)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(75, 75, 75))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(barangtersedia, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(61, 61, 61)
+                                        .addComponent(IDPeminjaman, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(107, 107, 107)
+                                        .addComponent(namabarang, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(IDPeminjaman, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(103, 103, 103)
-                        .addComponent(jLabel2))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(IDPeminjaman, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel4))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(namabarang)
+                        .addGap(16, 16, 16)
+                        .addComponent(barangtersedia)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JCStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(126, 126, 126)
-                .addComponent(btnsimpan)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(25, 25, 25)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel1)
+                                .addComponent(JCStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(147, 147, 147)
+                                .addComponent(btnsimpan))))
+                    .addComponent(barangpinjam))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         pack();
@@ -148,8 +215,14 @@ public class popup_verifikasi extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel IDPeminjaman;
     private javax.swing.JComboBox<String> JCStatus;
+    private javax.swing.JLabel barangpinjam;
+    private javax.swing.JLabel barangtersedia;
     private javax.swing.JButton btnsimpan;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel namabarang;
     // End of variables declaration//GEN-END:variables
 }

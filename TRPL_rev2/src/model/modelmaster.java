@@ -52,7 +52,6 @@ public abstract class modelmaster {
             sukseseksekusi = false;
             System.out.println("query salah");
         }
-        
         return sukseseksekusi;
     }
 

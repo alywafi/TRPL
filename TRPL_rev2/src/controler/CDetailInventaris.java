@@ -1,9 +1,7 @@
 package controler;
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+wkwkwkwk
  */
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
@@ -72,7 +70,7 @@ public class CDetailInventaris {
 
         @Override
         public void actionPerformed(ActionEvent a) {
-            CHomeAdmin c = new CHomeAdmin(new viewHomeAdmin(), view.getName());
+            controler.CHomeAdmin e = new controler.CHomeAdmin(new view.viewHomeAdmin(), username);
             view.dispose();
         }
     }

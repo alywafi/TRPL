@@ -28,27 +28,19 @@ public class MInventaris extends modelmaster {
     }
 
     public boolean updateDataInventaris(String[] data) throws SQLException {
-//        String row [] = {"stok","stok_ready"};
-//        String queryb = " select stok, stok_ready from inventaris where id_inventaris = "+ data[0] ;
-//        String a[] = getdataid(queryb, row);
-//        int stok = Integer.valueOf(a[0]) + Integer.valueOf(data [2]);
-//        int stok_Ready = Integer.valueOf(a[1]) + Integer.valueOf(data [2]);
-            String query = "UPDATE `inventaris` SET `nama_barang`='"+data[1]+"',`Stok`= "+data[2]+",`Stok_Ready`="+data[3]+" WHERE `id_inventaris`= "+data[0]+";";
-////        String query = "UPDATE `inventaris` SET `nama_barang`='obeng',`Stok`=100,`Stok_Ready`=100 WHERE `id_inventaris`=1";
-        return execute(query);
+        String query = "UPDATE `inventaris` SET `nama_barang`='" + data[1] + "',`Stok`= " + data[2] + ",`Stok_Ready`=" + data[3] + " WHERE `id_inventaris`= " + data[0] + ";";
+return execute(query);
     }
 
-    public boolean updateVerifikasi(String id, int index) throws SQLException {
-        String query = "UPDATE `peminjaman_inventaris` SET `id_status` = '" + index + "' WHERE id_peminjaman = '" + id + "'";
-        String querya = "select id_status from peminjaman_inventaris where id_peminjaman = " + id + "'";
-        if (index==5 ) {
-            
-        }else if (index == 1) {
-            
-        }else {
-            
+    public boolean updateVerifikasi(String id, int index, String operasi, String namabarang) throws SQLException {
+        boolean hasil = false;
+        System.out.println("ind "+id);
+        String query = "UPDATE `peminjaman_inventaris` SET `id_status` = " + index + " WHERE id_peminjaman = '" + id + "'";
+        String query2 = "UPDATE `inventaris` SET `Stok_Ready`= Stok_Ready"+operasi+" WHERE nama_barang = '"+ namabarang + "'" ;
+        if (execute(query2) == true) {
+            hasil = execute(query);
         }
-        return execute(query);
+        return hasil;
     }
 
     public String[] getDataWithID(String ID) throws SQLException {
@@ -56,6 +48,12 @@ public class MInventaris extends modelmaster {
         String data[] = new String[2];
         String query = "select `id_inventaris`,`nama_barang` from inventaris where `id_inventaris` = " + ID + ";";
         return getdataid(query, data);
+    }
+    public String getStatusWithID(String ID) throws SQLException {
+
+        String data = null;
+        String query = "select `status` from status_peminjaman s join peminjaman_inventaris p on s.id_status = p.id_status where `p.id_peminjaman` = " + ID + ";";
+        return getdataidNoaray(query, data);
     }
 
     public DefaultTableModel getDataDaftarPeminjaman(String ID) throws SQLException {
@@ -65,17 +63,41 @@ public class MInventaris extends modelmaster {
         return getDatatotal(query, data);
     }
 
-    public DefaultTableModel getDataDaftarPeminjaman() throws SQLException {
+    public DefaultTableModel getDataDaftarPeminjamantotal() throws SQLException {
 
-        String data[] = new String[5];
-        String query = "select id_peminjaman, id_inventaris,id_user,tanggal_kembali,s.status from peminjaman_inventaris p join status_peminjaman s on s.id_status = p.id_status";
+        String data[] = {"id_peminjaman", "nama_user", "nama_barang", "stock_ready", "barang yg di pinjam"};
+        String query = "SELECT `id_peminjaman`, `user`, `nama_barang`, `stok_ready`, `jumlah`, `status` FROM `peminjaman_inventaris` p join inventaris i on (p.id_inventaris=i.id_inventaris) join status_peminjaman s on (p.id_status=s.id_status) join pengguna pe on (p.id_user=pe.id_user)";
+        return getDatatotal(query, data);
+    }
+    public DefaultTableModel getDataDaftarPeminjamanbelumterverifikasi() throws SQLException {
+
+        String data[] = {"id_peminjaman", "nama_user", "nama_barang", "stock_ready", "barang yg di pinjam"};
+        String query = "SELECT `id_peminjaman`, `user`, `nama_barang`, `stok_ready`, `jumlah`, `status` FROM `peminjaman_inventaris` p join inventaris i on (p.id_inventaris=i.id_inventaris) join status_peminjaman s on (p.id_status=s.id_status) join pengguna pe on (p.id_user=pe.id_user)";
+        return getDatatotal(query, data);
+    }
+    public DefaultTableModel getDataDaftarPeminjamanterverifikasi() throws SQLException {
+
+        String data[] = {"id_peminjaman", "nama_user", "nama_barang", "stock_ready", "barang yg di pinjam"};
+        String query = "SELECT `id_peminjaman`, `user`, `nama_barang`, `stok_ready`, `jumlah`, `status` FROM `peminjaman_inventaris` p join inventaris i on (p.id_inventaris=i.id_inventaris) "
+                + "join status_peminjaman s on (p.id_status=s.id_status) join pengguna pe on (p.id_user=pe.id_user) where status = 2";
+        return getDatatotal(query, data);
+    }
+    public DefaultTableModel getDataDaftarPeminjamanselesai() throws SQLException {
+
+        String data[] = {"id_peminjaman", "nama_user", "nama_barang", "stock_ready", "barang yg di pinjam"};
+        String query = "SELECT `id_peminjaman`, `user`, `nama_barang`, `stok_ready`, `jumlah`, `status` FROM `peminjaman_inventaris` p join inventaris i on "
+                + "(p.id_inventaris=i.id_inventaris) join status_peminjaman s on (p.id_status=s.id_status) join pengguna pe on (p.id_user=pe.id_user) where status = 3 ";
+        return getDatatotal(query, data);
+    }
+    public DefaultTableModel getDataDaftarPeminjamangagal() throws SQLException {
+
+        String data[] = {"id_peminjaman", "nama_user", "nama_barang", "stock_ready", "barang yg di pinjam"};
+        String query = "SELECT `id_peminjaman`, `user`, `nama_barang`, `stok_ready`, `jumlah`, `status` FROM `peminjaman_inventaris` p join inventaris i on "
+                + "(p.id_inventaris=i.id_inventaris) join status_peminjaman s on (p.id_status=s.id_status) join pengguna pe on (p.id_user=pe.id_user) where status=4";
         return getDatatotal(query, data);
     }
 
     public boolean setDataPeminjaman(String[] data) throws SQLException {
-        for (int i = 0; i < data.length; i++) {
-
-        }
         String query = "INSERT INTO `peminjaman_inventaris` (`id_peminjaman`, `id_user`, `id_inventaris`, `jumlah`, `tanggal_pinjam`, `tanggal_kembali`) "
                 + "VALUES (NULL, '" + data[3] + "', '" + data[0] + "', '" + data[1] + "', CURRENT_DATE, (SELECT CURRENT_DATE + INTERVAL " + data[2] + " day));";
         return execute(query);

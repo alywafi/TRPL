@@ -69,7 +69,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="40" y="220" width="820" height="380"/>
+          <AbsoluteConstraints x="90" y="230" width="820" height="380"/>
         </Constraint>
       </Constraints>
 
@@ -114,7 +114,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="410" y="140" width="-1" height="-1"/>
+          <AbsoluteConstraints x="440" y="140" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -124,7 +124,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="270" y="140" width="-1" height="-1"/>
+          <AbsoluteConstraints x="290" y="140" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -164,13 +164,34 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JButton" name="btnverifikasi">
+    <Component class="javax.swing.JButton" name="ver_peminjaman">
       <Properties>
-        <Property name="text" type="java.lang.String" value="verifikasi"/>
+        <Property name="text" type="java.lang.String" value="verifikasi peminjaman"/>
+        <Property name="autoscrolls" type="boolean" value="true"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="480" y="140" width="120" height="-1"/>
+          <AbsoluteConstraints x="510" y="140" width="210" height="-1"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JButton" name="ver_pengembalian">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="verifikasi pengembalian"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="740" y="140" width="-1" height="-1"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnverifi">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="verifi"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="510" y="170" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>

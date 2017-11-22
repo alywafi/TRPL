@@ -44,8 +44,24 @@ public class CLihatDataTebar {
         
         @Override
         public void actionPerformed(ActionEvent a) {
-            CHomeKetuaUmum x = new CHomeKetuaUmum(new viewHomeKetuaUmum(), view.getName());
-            view.dispose();
+            try {
+                if (model.getJabatan(username).equalsIgnoreCase("4")) {
+                    controler.CHomeUser d = new controler.CHomeUser(new view.viewHomeUser(), username);
+                } 
+                if (model.getJabatan(username).equalsIgnoreCase("1"))
+                {
+                    controler.CHomeAdmin e = new controler.CHomeAdmin(new view.viewHomeAdmin(), username);
+                }
+                if (model.getJabatan(username).equalsIgnoreCase("2")) {
+                    controler.CHomeKetuaUmum f = new controler.CHomeKetuaUmum(new view.viewHomeKetuaUmum(), username);
+                }
+                if (model.getJabatan(username).equalsIgnoreCase("3")) {
+                    controler.CHomeKetuaSub g = new controler.CHomeKetuaSub(new view.viewHomeKetuaSub(),username);
+                }
+                view.dispose();
+            } catch (SQLException ex) {
+                Logger.getLogger(Cforum.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
     

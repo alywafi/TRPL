@@ -19,8 +19,9 @@ public class popup_detailinvntaris extends javax.swing.JFrame {
      * Creates new form popup_tebar
      */
     public popup_detailinvntaris() {
-        this.setLocationRelativeTo(this);
+        
         initComponents();
+        this.setLocationRelativeTo(this);
     }
 
     public String[] getdata() {
@@ -86,7 +87,7 @@ public class popup_detailinvntaris extends javax.swing.JFrame {
         stock_ready = new javax.swing.JTextField();
         stockready = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("id_inventaris");
 

@@ -22,7 +22,7 @@ public class CLogin {
 
     viewLogin view;
     MLogin model;
-
+String username;
     public CLogin(viewLogin view, MLogin model) {
         this.view = view;
         this.model = model;
@@ -62,11 +62,11 @@ private class minimizeaction implements ActionListener{
                                 break;
                             case "2":
                                 view.dispose();
-                                controler.CHomeKetuaUmum b = new controler.CHomeKetuaUmum(new view.viewHomeKetuaUmum(), view.getusername());
+                                controler.CHomeKetuaUmum b = new controler.CHomeKetuaUmum(new view.viewHomeKetuaUmum(),view.getusername());
                                 break;
                             case "3":
                                 view.dispose();
-                                controler.CHomeKetuaSub c = new controler.CHomeKetuaSub(new view.viewHomeKetuaSub());
+                                controler.CHomeKetuaSub c = new controler.CHomeKetuaSub(new view.viewHomeKetuaSub(),view.getusername());
                                 break;
                             case "4":
                                 view.dispose();
