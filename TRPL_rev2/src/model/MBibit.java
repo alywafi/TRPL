@@ -13,8 +13,8 @@ public class MBibit extends modelmaster {
     }
 
     public DefaultTableModel getDatatebar() throws SQLException {
-        String kolom[] = {"id_tebar", "id_user", "jumlah", "tanggal","kolam"};
-        String query = "select * from tebar_bibit;";
+        String kolom[] = {"id_tebar", "nama user", "jumlah bibit", "tanggal tebar","luas kolam"};
+        String query = "SELECT `id_tebar`, `user`, `jumlah`, `tanggal`, `kolam` FROM `tebar_bibit` t join pengguna p on (t.id_user=p.id_user)";
         return getDatatotal(query, kolom);
     }
     public DefaultTableModel getDatatebar(String id) throws SQLException {

@@ -22,7 +22,8 @@ public class CLogin {
 
     viewLogin view;
     MLogin model;
-String username;
+    String username;
+
     public CLogin(viewLogin view, MLogin model) {
         this.view = view;
         this.model = model;
@@ -31,22 +32,25 @@ String username;
         view.klikminimize(new minimizeaction());
         view.kliklogin(new loginaction());
     }
-private class exitaction implements ActionListener{
+
+    private class exitaction implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
             System.exit(0);
         }
 
-}
-private class minimizeaction implements ActionListener{
+    }
+
+    private class minimizeaction implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
             view.setState(Frame.ICONIFIED);
         }
 
-}
+    }
+
     private class loginaction implements ActionListener {
 
         @Override
@@ -57,27 +61,27 @@ private class minimizeaction implements ActionListener{
                     if (model.cekpassword(view.getusername(), view.getpassword()) == true) {
                         switch (model.getJabatan(view.getusername())) {
                             case "1":
+                                controler.CHomeAdmin a = new controler.CHomeAdmin(new view.viewHomeAdmin(), view.getusername());
                                 view.dispose();
-                                controler.CHomeAdmin a = new controler.CHomeAdmin(new view.viewHomeAdmin(),view.getusername());
                                 break;
                             case "2":
+                                controler.CHomeKetuaUmum b = new controler.CHomeKetuaUmum(new view.viewHomeKetuaUmum(), view.getusername());
                                 view.dispose();
-                                controler.CHomeKetuaUmum b = new controler.CHomeKetuaUmum(new view.viewHomeKetuaUmum(),view.getusername());
                                 break;
                             case "3":
+                                controler.CHomeKetuaSub c = new controler.CHomeKetuaSub(new view.viewHomeKetuaSub(), view.getusername());
                                 view.dispose();
-                                controler.CHomeKetuaSub c = new controler.CHomeKetuaSub(new view.viewHomeKetuaSub(),view.getusername());
                                 break;
                             case "4":
+                                controler.CHomeUser d = new controler.CHomeUser(new view.viewHomeUser(), view.getusername());
                                 view.dispose();
-                                controler.CHomeUser d = new controler.CHomeUser(new view.viewHomeUser(),view.getusername());
                                 break;
                         }
                     } else {
                         view.message("password salah");
                     }
                 } else {
-                    if (view.getusername().equalsIgnoreCase("")||view.getpassword().equalsIgnoreCase("")) {
+                    if (view.getusername().equalsIgnoreCase("") || view.getpassword().equalsIgnoreCase("")) {
                         view.message("username dan password kosong");
                     } else {
                         view.message("username salah");
