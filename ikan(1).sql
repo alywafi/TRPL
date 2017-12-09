@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2017 at 07:54 AM
+-- Generation Time: Dec 09, 2017 at 05:37 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 7.0.9
 
@@ -17,8 +17,32 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ikantrpl`
+-- Database: `ikan`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `forum`
+--
+
+CREATE TABLE `forum` (
+  `id_masalah` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `judul` varchar(30) NOT NULL,
+  `isi` text NOT NULL,
+  `tgl_masalah` date NOT NULL,
+  `selesai` tinyint(1) NOT NULL,
+  `hasil` varchar(255) DEFAULT 'belum di bahas'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `forum`
+--
+
+INSERT INTO `forum` (`id_masalah`, `id_user`, `judul`, `isi`, `tgl_masalah`, `selesai`, `hasil`) VALUES
+(3, 4, 'qwsfac', 'qasvasfasc', '2017-12-09', 0, 'asfafasf'),
+(4, 4, 'qwsfac', 'qasvascvasasfcqa', '2017-12-09', 0, 'ascasc ascvazx');
 
 -- --------------------------------------------------------
 
@@ -38,7 +62,10 @@ CREATE TABLE `inventaris` (
 --
 
 INSERT INTO `inventaris` (`id_inventaris`, `nama_barang`, `Stok`, `Stok_Ready`) VALUES
-(1, 'ember plastik', 70, 70);
+(1, 'obeng', 100, 100),
+(2, 'panci', 1000, 1000),
+(3, 'sendok', 50, 50),
+(4, 'iqbal', 40, 40);
 
 -- --------------------------------------------------------
 
@@ -83,7 +110,10 @@ CREATE TABLE `peminjaman_inventaris` (
 
 INSERT INTO `peminjaman_inventaris` (`id_peminjaman`, `id_user`, `id_inventaris`, `jumlah`, `tanggal_pinjam`, `tanggal_kembali`, `id_status`) VALUES
 (9, 4, 1, 100, '2017-11-02', '2017-11-24', 4),
-(10, 4, 1, 999, '2017-11-02', '2017-11-24', 3);
+(10, 4, 1, 999, '2017-11-02', '2017-11-24', 3),
+(11, 4, 1, 4, '2017-11-02', '2017-11-07', 4),
+(12, 4, 4, 10, '2017-11-07', '2017-11-10', 1),
+(13, 4, 3, 10, '2017-11-07', '2017-11-11', 4);
 
 -- --------------------------------------------------------
 
@@ -155,11 +185,20 @@ INSERT INTO `tebar_bibit` (`id_tebar`, `id_user`, `jumlah`, `tanggal`, `kolam`) 
 (6, 1, 10000, '2017-10-25', 10),
 (7, 1, 1, '2017-10-25', 10),
 (8, 1, 123000, '2017-10-25', 10),
-(9, 1, 1, '2017-10-26', 1);
+(9, 1, 1, '2017-10-26', 1),
+(10, 4, 1000, '2017-11-02', 4),
+(11, 4, 8000, '2017-12-09', 5);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `forum`
+--
+ALTER TABLE `forum`
+  ADD PRIMARY KEY (`id_masalah`),
+  ADD KEY `id_user` (`id_user`);
 
 --
 -- Indexes for table `inventaris`
@@ -208,10 +247,15 @@ ALTER TABLE `tebar_bibit`
 --
 
 --
+-- AUTO_INCREMENT for table `forum`
+--
+ALTER TABLE `forum`
+  MODIFY `id_masalah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
 -- AUTO_INCREMENT for table `inventaris`
 --
 ALTER TABLE `inventaris`
-  MODIFY `id_inventaris` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_inventaris` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `jabatan`
 --
@@ -221,7 +265,7 @@ ALTER TABLE `jabatan`
 -- AUTO_INCREMENT for table `peminjaman_inventaris`
 --
 ALTER TABLE `peminjaman_inventaris`
-  MODIFY `id_peminjaman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_peminjaman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `pengguna`
 --
@@ -236,10 +280,16 @@ ALTER TABLE `status_peminjaman`
 -- AUTO_INCREMENT for table `tebar_bibit`
 --
 ALTER TABLE `tebar_bibit`
-  MODIFY `id_tebar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_tebar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `forum`
+--
+ALTER TABLE `forum`
+  ADD CONSTRAINT `forum_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `pengguna` (`id_user`);
 
 --
 -- Constraints for table `peminjaman_inventaris`
@@ -248,6 +298,12 @@ ALTER TABLE `peminjaman_inventaris`
   ADD CONSTRAINT `peminjaman_inventaris_ibfk_1` FOREIGN KEY (`id_inventaris`) REFERENCES `inventaris` (`id_inventaris`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `peminjaman_inventaris_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `pengguna` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `peminjaman_inventaris_ibfk_3` FOREIGN KEY (`id_status`) REFERENCES `status_peminjaman` (`id_status`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `pengguna`
+--
+ALTER TABLE `pengguna`
+  ADD CONSTRAINT `pengguna_ibfk_1` FOREIGN KEY (`id_jabatan`) REFERENCES `jabatan` (`id_jabatan`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
