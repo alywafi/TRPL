@@ -39,7 +39,9 @@ public class CLihatDataTebar {
         view.KlikBack(new BackAction());
         view.setVisible(true);
     }
+    public void settabletebar(){
     
+    }
     private class BackAction implements ActionListener {
         
         @Override

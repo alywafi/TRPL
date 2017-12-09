@@ -48,11 +48,11 @@ public class viewInventaris extends javax.swing.JFrame {
     
     public String[] getdata() {
         String data[] = new String[5];
-        data[0] = this.tabel.getValueAt(this.getSelectedRow(), 0).toString();
-        data[1] = this.tabel.getValueAt(this.getSelectedRow(), 1).toString();
-        data[2] = this.tabel.getValueAt(this.getSelectedRow(), 2).toString();
-        data[3] = this.tabel.getValueAt(this.getSelectedRow(), 3).toString();
-        data[4] = this.tabel.getValueAt(this.getSelectedRow(), 4).toString();
+        data[0] = this.tabel.getValueAt(this.getSelectedRow(), 0).toString();//idpeminjaman
+        data[1] = this.tabel.getValueAt(this.getSelectedRow(), 1).toString();//nama_user
+        data[2] = this.tabel.getValueAt(this.getSelectedRow(), 2).toString();//nama_barang
+        data[3] = this.tabel.getValueAt(this.getSelectedRow(), 3).toString();//stock_ready
+        data[4] = this.tabel.getValueAt(this.getSelectedRow(), 4).toString();//barang yg di pinjam
         return data;
     }
     
@@ -114,8 +114,11 @@ public class viewInventaris extends javax.swing.JFrame {
     public void setenablepengembalian(boolean set) {
         ver_pengembalian.setEnabled(set);
     }
-    public void setenableselesi(boolean set) {
+    public void setenableselesai(boolean set) {
         selesai.setEnabled(set);
+    }
+    public void setvisibleselesai(boolean set) {
+        selesai.setVisible(set);
     }
 
     public void setvisibleverifi(boolean set) {

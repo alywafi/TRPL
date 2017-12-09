@@ -48,6 +48,13 @@ public class popup_inputpinjaman extends javax.swing.JFrame {
     public void simpan (ActionListener a) {
         btnSimpan.addActionListener(a);
     }
+    public void clear (){
+    id_inventaris.setText("");
+    id_peminjaman.setText("");
+    Jumlah.setText("");
+    Durasi_Pinjam.setText("");
+    IdPengguna.setText("");
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
