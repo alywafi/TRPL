@@ -40,6 +40,7 @@ public class CHomeAdmin {
         view.klikminimize(new minimizeaction());
         view.klikDetailInventaris(new DetailListener());
         view.klikforum(new forumListener());
+        view.klikuser(new userListener());
         System.out.println(Username);
         view.SetName(Username);
         view.setVisible(true);
@@ -63,6 +64,18 @@ public class CHomeAdmin {
         public void actionPerformed(ActionEvent e) {
             try {
                 Cforum a = new Cforum(new viewforum(), new Mforum(),new popup_inputdataforum(),new popup_inputhasilforum(),username);
+                view.dispose();
+            } catch (SQLException ex) {
+                Logger.getLogger(CHomeAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    private class userListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            try {
+                Cmanageuser a = new Cmanageuser(new view.viewmanageuser(), new model.Muser(), new view.popup_manageuser(), username);
                 view.dispose();
             } catch (SQLException ex) {
                 Logger.getLogger(CHomeAdmin.class.getName()).log(Level.SEVERE, null, ex);

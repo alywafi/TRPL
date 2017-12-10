@@ -17,9 +17,9 @@ public class popup_inputhasilforum extends javax.swing.JFrame {
      * Creates new form popup_inputpinjaman
      */
     public popup_inputhasilforum() {
-       
+
         initComponents();
-         setLocationRelativeTo(this);
+        setLocationRelativeTo(this);
     }
 
     public String[] getdata() {
@@ -27,9 +27,9 @@ public class popup_inputhasilforum extends javax.swing.JFrame {
         data[0] = judul.getText();
         data[1] = isi.getText();
         data[2] = IdPengguna.getText();
-        data[3] = selesai.getSelectedItem().toString();
-        data[4]=id_masalah.getText();
-        data[5]=hasil.getText();
+        data[3] = selesai.getSelectedIndex()+"";
+        data[4] = id_masalah.getText();
+        data[5] = hasil.getText();
         System.out.println("selesai = " + data[3]);
         return data;
     }
@@ -42,24 +42,26 @@ public class popup_inputhasilforum extends javax.swing.JFrame {
     }
 
     public void setdataubah(String[] data, String username) {
-         System.out.println("id masalah"+data[0]);
+        System.out.println("id masalah" + data[0]);
         id_masalah.setText(data[0]);
-       
+
         IdPengguna.setText(data[1]);
-        System.out.println("idpengguna"+data[1]);
+        System.out.println("idpengguna" + data[1]);
         judul.setText(data[2]);
-        System.out.println("judul "+data[2]);
+        System.out.println("judul " + data[2]);
         isi.setText(data[3]);
-        System.out.println("isi "+data[3]);
+        System.out.println("isi " + data[3]);
 //        selesai.setSelectedIndex(Integer.parseInt(data[5]));
         nama.setText(username);
         hasil.setText(data[5]);
-        System.out.println("hasil "+data[5]);
-        
+        System.out.println("hasil " + data[5]);
+
     }
-public void setenablehasil (boolean set){
-hasil.setEnabled(set);
-}
+
+    public void setenablehasil(boolean set) {
+        hasil.setEditable(set);
+    }
+
     public void setsimpan(String set) {
         btnSimpan.setText(set);
     }
@@ -148,7 +150,7 @@ hasil.setEnabled(set);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 240, 110));
 
-        selesai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1" }));
+        selesai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "belum selesai", "sudah selesai" }));
         getContentPane().add(selesai, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, -1, -1));
 
         jLabel3.setText("selesai");

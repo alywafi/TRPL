@@ -27,7 +27,7 @@ public class popup_inputdataforum extends javax.swing.JFrame {
         data[0] = judul.getText();
         data[1] = isi.getText();
         data[2] = IdPengguna.getText();
-        data[3] = selesai.getSelectedItem().toString();
+        data[3] = selesai.getSelectedIndex()+"";
         data[4]=id_masalah.getText();
         System.out.println("selesai = " + data[3]);
         return data;
@@ -45,7 +45,6 @@ public class popup_inputdataforum extends javax.swing.JFrame {
         judul.setText(data[1]);
         isi.setText(data[2]);
         tanggalinput.setText(data[3]);
-//        selesai.setSelectedIndex(Integer.parseInt(data[5]));
         nama.setText(username);
         
     }

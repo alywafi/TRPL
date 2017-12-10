@@ -42,11 +42,11 @@ public class viewHomeAdmin extends javax.swing.JFrame {
     public void klikDetailInventaris(ActionListener action) {
         klikDetailInventaris.addActionListener(action);
     }
-
-    
-
     public void klikforum(ActionListener action) {
         klikforum.addActionListener(action);
+    }
+    public void klikuser(ActionListener action) {
+        klikuser.addActionListener(action);
     }
 
     /**
@@ -58,6 +58,7 @@ public class viewHomeAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        klikuser = new javax.swing.JButton();
         tombolminimize = new javax.swing.JButton();
         tombolexit = new javax.swing.JButton();
         klikDetailInventaris = new javax.swing.JButton();
@@ -69,6 +70,9 @@ public class viewHomeAdmin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        klikuser.setText("user");
+        getContentPane().add(klikuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 270, 200, 240));
 
         tombolminimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/All_Minimize.png"))); // NOI18N
         tombolminimize.setBorder(null);
@@ -84,18 +88,16 @@ public class viewHomeAdmin extends javax.swing.JFrame {
         getContentPane().add(tombolexit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 0, 50, 20));
 
         klikDetailInventaris.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/btnDetailInventaris.png"))); // NOI18N
-        klikDetailInventaris.setText("jButton1");
         klikDetailInventaris.setBorderPainted(false);
         klikDetailInventaris.setContentAreaFilled(false);
         klikDetailInventaris.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/btnDetailInventarisMouseOver.png"))); // NOI18N
-        getContentPane().add(klikDetailInventaris, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, 240, 260));
+        getContentPane().add(klikDetailInventaris, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 250, 260));
 
         klikforum.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/button_Forum.png"))); // NOI18N
-        klikforum.setText("jButton4");
         klikforum.setBorderPainted(false);
         klikforum.setContentAreaFilled(false);
         klikforum.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/button_ForumMouseOver.png"))); // NOI18N
-        getContentPane().add(klikforum, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 270, 240, 260));
+        getContentPane().add(klikforum, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 260, 250, 260));
 
         btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/logout.png"))); // NOI18N
         btnLogout.setBorder(null);
@@ -158,6 +160,7 @@ public class viewHomeAdmin extends javax.swing.JFrame {
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton klikDetailInventaris;
     private javax.swing.JButton klikforum;
+    private javax.swing.JButton klikuser;
     private javax.swing.JButton tombolexit;
     private javax.swing.JButton tombolminimize;
     // End of variables declaration//GEN-END:variables

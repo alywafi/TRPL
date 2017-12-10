@@ -128,6 +128,7 @@ public class Cforum {
                 }
                 String jabatan = model.getJabatan(username);
                 System.out.println("jabatan = "+jabatan);
+                System.out.println("jabatan = "+jabatan);
                 if (jabatan.equalsIgnoreCase("2")) {
                     System.out.println("enable hasil");
                     popuphasil.setenablehasil(true);

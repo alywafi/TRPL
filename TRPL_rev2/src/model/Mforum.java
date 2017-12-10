@@ -66,12 +66,6 @@ System.out.println("judul = "+data[0]);
         return execute(query);
     }
 
-    public boolean updateVerifikasi(String id, int index) {
-        System.out.println(id);
-        System.out.println(index);
-        String query = "UPDATE `peminjaman_inventaris` SET `id_status` = '" + index + "' WHERE id_peminjaman = '" + id + "'";
-        return execute(query);
-    }
 
     public boolean setDataforum(String[] data) throws SQLException {
         System.out.println("id user = " + data[2]);
