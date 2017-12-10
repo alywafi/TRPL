@@ -59,7 +59,6 @@ return execute(query);
     public DefaultTableModel getDataDaftarPeminjaman(String ID) throws SQLException {
 
         String data[] = {"id_peminjaman","nama_barang","jumlah","tanggal_kembali", "status"};
-//        String query = "SELECT * FROM `peminjaman_inventaris` WHERE `id_user` = " + ID;
 String query = "SELECT `id_peminjaman`, `nama_barang`, `jumlah`,`tanggal_kembali`, `status` FROM `peminjaman_inventaris` p join status_peminjaman s on (p.id_status=s.id_status) join inventaris i on (p.id_inventaris=i.id_inventaris) WHERE `id_user` = "+ID;
         return getDatatotal(query, data);
     }

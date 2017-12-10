@@ -11,12 +11,8 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.MInventaris;
 import model.Muser;
-import view.popup_inputpinjaman;
 import view.popup_manageuser;
-import view.popup_verifikasi;
-import view.viewInventaris;
 import view.viewmanageuser;
 
 /**
@@ -56,6 +52,7 @@ public class Cmanageuser {
                 if (popup.getButtonText().equalsIgnoreCase("simpan")) {
                     if (model.insertdatauserbaru(popup.getdata())==true) {
                         popup.message("berhasil input user baru");
+                        popup.dispose();
                     }
                     else {
                         popup.message("gagal input user baru");
@@ -90,25 +87,8 @@ public class Cmanageuser {
 
         @Override
         public void actionPerformed(ActionEvent a) {
-            try {
-                System.out.println("username" + username);
-                if (model.getJabatan(username).equalsIgnoreCase("4")) {
-                    controler.CHomeUser d = new controler.CHomeUser(new view.viewHomeUser(), username);
-                }
-                if (model.getJabatan(username).equalsIgnoreCase("1")) {
-                    controler.CHomeAdmin e = new controler.CHomeAdmin(new view.viewHomeAdmin(), username);
-                }
-                if (model.getJabatan(username).equalsIgnoreCase("2")) {
-                    controler.CHomeKetuaUmum f = new controler.CHomeKetuaUmum(new view.viewHomeKetuaUmum(), username);
-                }
-                if (model.getJabatan(username).equalsIgnoreCase("3")) {
-                    controler.CHomeKetuaSub g = new controler.CHomeKetuaSub(new view.viewHomeKetuaSub(), username);
-                }
-                view.dispose();
-            } catch (SQLException ex) {
-                Logger.getLogger(Cforum.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
+            controler.CHomeAdmin e = new controler.CHomeAdmin(new view.viewHomeAdmin(), username);
+            view.dispose();
         }
     }
 

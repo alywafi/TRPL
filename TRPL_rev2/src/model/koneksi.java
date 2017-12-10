@@ -25,7 +25,6 @@ public class koneksi {
     public void executeQuery(String query) throws SQLException {
         this.stm.execute(query);
     }
-
     //method untuk ekesekusi query Select
     public ResultSet getResult(String query) throws SQLException {
         ResultSet rs = stm.executeQuery(query);

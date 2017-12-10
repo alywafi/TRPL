@@ -56,12 +56,6 @@ public class Mforum extends modelmaster {
     }
 
     public boolean updateDataforumadmin(String[] data) {
-//        String query = "UPDATE `forum` SET `judul`='"+data[0]+"',`isi`='"+data[1]+"',`selesai`= "+data[3]+" , hasil = "+data[5]+" WHERE `id_masalah` = "+data[0];
-System.out.println("judul = "+data[0]);
-        System.out.println("isi " +data[1]);
-        System.out.println("selesai "+data[3]);
-        System.out.println("hasil "+data[3]);
-        System.out.println("id maslah"+data[4]);
         String query = "UPDATE `forum` SET `judul`='" + data[0] + "',`isi`='" + data[1] + "', `selesai`= " + data[3] + ",`hasil`='" + data[5] + "' WHERE `id_masalah` = " + data[4];
         return execute(query);
     }

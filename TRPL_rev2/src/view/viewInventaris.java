@@ -98,14 +98,6 @@ public class viewInventaris extends javax.swing.JFrame {
     public void klikselesai(ActionListener action) {
         selesai.addActionListener(action);
     }
-    
-    public void setvisibleverifikasi(boolean set) {
-        ver_peminjaman.setVisible(set);
-        ver_pengembalian.setVisible(set);
-        ver_peminjaman.setEnabled(set);
-        ver_pengembalian.setEnabled(set);
-        btnverifi.setVisible(!set);
-    }
 
     public void setenablepeminjaman(boolean set) {
         ver_peminjaman.setEnabled(set);
@@ -117,13 +109,6 @@ public class viewInventaris extends javax.swing.JFrame {
     public void setenableselesai(boolean set) {
         selesai.setEnabled(set);
     }
-    public void setvisibleselesai(boolean set) {
-        selesai.setVisible(set);
-    }
-
-    public void setvisibleverifi(boolean set) {
-        btnverifi.setVisible(set);
-    }
 
     public void klikverifi(ActionListener action) {
         btnverifi.addActionListener(action);
@@ -133,7 +118,15 @@ public class viewInventaris extends javax.swing.JFrame {
         btnpinjam.setVisible(set);
         btndaftar.setVisible(set);
     }
-    
+    public void setvisibletombolverifikasi (boolean set){
+     ver_peminjaman.setVisible(set);
+     ver_pengembalian.setVisible(set);
+        selesai.setVisible(set);
+        btnverifi.setVisible(set);
+    }
+    public void setvisibleverifi (boolean set){
+    selesai.setVisible(set);
+    }
     public String getButtonText() {
         String text = btndaftar.getText();
         return text;

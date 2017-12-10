@@ -26,7 +26,7 @@ public class CInventaris {
     MInventaris model;
     popup_inputpinjaman popup;
     popup_verifikasi popupver;
-    String jabatan;
+//    String jabatan;
     String username;
 
     public CInventaris(viewInventaris view, MInventaris model, popup_inputpinjaman popup, popup_verifikasi popupver, String Username) throws SQLException {
@@ -35,7 +35,6 @@ public class CInventaris {
         this.popup = popup;
         this.popupver = popupver;
         this.username = Username;
-
         view.klikexit(new exitaction());
         view.klikminimize(new minimizeaction());
         view.klikpinjam(new pinjambarang());
@@ -45,23 +44,24 @@ public class CInventaris {
         view.klikVerifikasipengembalian(new verifikasipengembalian());
         view.klikselesai(new selesai());
         popupver.simpan(new simpanVerAction());
-        if (model.getJabatan(Username).equalsIgnoreCase("4")) {
-            view.setvisibleverifikasi(false);
-            view.setvisiblPeminjaman(true);
-            view.setvisibleselesai(false);
-            view.setvisibleverifi(false);
-            view.setTableModel(model.getDatainventaris());
-        } else {
-            view.setTableModel(model.getDataDaftarPeminjamantotal());
-            view.setvisibleverifikasi(true);
-            view.setvisiblPeminjaman(false);
-            view.setvisibleverifi(false);
-        }
+        tampiltombol();
         view.KlikBack(new BackAction());
         view.SetName(Username);
         popup.setVisible(false);
         view.setVisible(true);
         view.klikVerifikasipeminjaman(new verifikasipeminjaman());
+    }
+
+    public void tampiltombol() throws SQLException {
+        String jabatan = model.getJabatan(username);
+        if (jabatan.equalsIgnoreCase("2")) {
+            view.setTableModel(model.getDataDaftarPeminjamantotal());
+            view.setvisibletombolverifikasi(true);
+            
+        } else {
+            view.setTableModel(model.getDatainventaris());
+            view.setvisibletombolverifikasi(false);
+        }
     }
 
     private class simpanVerAction implements ActionListener {
@@ -81,12 +81,11 @@ public class CInventaris {
                             view.message("Verivikasi gagal");
                         }
                         System.out.println("jalannnnn");
-                        view.setvisibleverifikasi(true);
+//                        view.setvisibletombolverifikasi(true);
                         popupver.dispose();
                         view.setTableModel(model.getDataDaftarPeminjamantotal());
-                    }
-                    else {
-                    view.message("stock yang anda pinjam kurang");
+                    } else {
+                        view.message("stock yang anda pinjam kurang");
                     }
                 } else {
                     String jumlahbarang = "+" + popupver.getjumlahbarangpinjam();
@@ -99,7 +98,7 @@ public class CInventaris {
                         view.message("Verivikasi gagal");
                     }
                     System.out.println("jalannnnn");
-                    view.setvisibleverifikasi(true);
+//                    view.setvisibleverifikasi(true);
                     popupver.dispose();
                     view.setTableModel(model.getDataDaftarPeminjamantotal());
 
@@ -187,7 +186,7 @@ public class CInventaris {
                 } else {
                     view.message("data gagal di inputkan \n mohon periksa kembali inputan anda");
                 }
-                view.setvisibleverifikasi(true);
+//                view.setvisibleverifikasi(true);
             } catch (SQLException ex) {
                 Logger.getLogger(CInventaris.class.getName()).log(Level.SEVERE, null, ex);
             }
